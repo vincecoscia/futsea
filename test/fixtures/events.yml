@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-03-09
+  time: 2019-03-09 13:49:52
+  price: 1
+  event_end: false
+  event_start: false
+
+two:
+  date: 2019-03-09
+  time: 2019-03-09 13:49:52
+  price: 1
+  event_end: false
+  event_start: false
