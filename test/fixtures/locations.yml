@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  street: MyString
+  city: MyString
+  zipcode: MyString
+  state: MyString
+  url: MyString
+  phone: MyString
+  neighborhood: MyString
+  mon_open: 1
+  mon_close: 1
+  tue_open: 1
+  tue_close: 1
+  wed_open: 1
+  wed_close: 1
+  thu_open: 1
+  thu_close: 1
+  fri_open: 1
+  fri_close: 1
+  sat_open: 1
+  sat_close: 1
+  sun_open: 1
+  sun_close: 1
+
+two:
+  name: MyString
+  street: MyString
+  city: MyString
+  zipcode: MyString
+  state: MyString
+  url: MyString
+  phone: MyString
+  neighborhood: MyString
+  mon_open: 1
+  mon_close: 1
+  tue_open: 1
+  tue_close: 1
+  wed_open: 1
+  wed_close: 1
+  thu_open: 1
+  thu_close: 1
+  fri_open: 1
+  fri_close: 1
+  sat_open: 1
+  sat_close: 1
+  sun_open: 1
+  sun_close: 1

@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Seeding these mothafuckin locations...."
+
+l_one = Location.create(name: "Soccer Cage Brickell", street: "301 SW 8th St" , city: "Miami" , zipcode: "33130", state: "FL", url: "https://www.soccercagemiami.com", phone: "305-343-1757", neighborhood: "Brickell", mon_open: 10, mon_close: 23, tue_open: 10, tue_close: 23, wed_open: 10, wed_close: 23, thu_open: 10, thu_close: 23, fri_open: 10, fri_close: 23, sat_open: 10, sat_close: 23, sun_open: 10, sun_close: 23)
+
+l_two = Location.create(name: "Downtown Soccer Miami", street: "444 NW 5th St" , city: "Miami" , zipcode: "33128", state: "FL", url: "https://www.downtownsoccermiami.com", phone: "305-808-9997", neighborhood: "Downtown", mon_open: 8, mon_close: 23, tue_open: 8, tue_close: 23, wed_open: 8, wed_close: 23, thu_open: 8, thu_close: 23, fri_open: 8, fri_close: 23, sat_open: 8, sat_close: 23, sun_open: 8, sun_close: 23)
+
+Field.create(game_type: 4,surface: "turf",outdoor: true, location: l_one)
+Field.create(game_type: 5,surface: "turf",outdoor: true, location: l_one)
+Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_one)
+
+Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_two)
+Field.create(game_type: 7,surface: "turf",outdoor: true, location: l_two)
+
+puts "We created #{Location.count} Locations and #{Field.count} Fields"
