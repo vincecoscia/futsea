@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(version: 2019_03_09_184952) do
     t.string "surface"
     t.boolean "outdoor"
     t.bigint "location_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_fields_on_location_id"
   end
 
@@ -46,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_03_09_184952) do
     t.string "url"
     t.string "phone"
     t.string "neighborhood"
+    t.text "description"
     t.integer "mon_open"
     t.integer "mon_close"
     t.integer "tue_open"

@@ -6,10 +6,7 @@ class CreateFields < ActiveRecord::Migration[5.2]
       t.boolean :outdoor
       t.references :location, foreign_key: true
 
-      t.timestamps
+      t.timestamp
     end
   end
 end
-
-
-# Field.create(game_type: 7,surface: "turf",outdoor: true, location: )

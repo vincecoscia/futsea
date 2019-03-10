@@ -9,6 +9,7 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.string :url
       t.string :phone
       t.string :neighborhood
+      t.text :description
       t.integer :mon_open
       t.integer :mon_close
       t.integer :tue_open
@@ -28,3 +29,4 @@ class CreateLocations < ActiveRecord::Migration[5.2]
     end
   end
 end
+
