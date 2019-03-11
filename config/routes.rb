@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'home#index'
+  get '/locations', to: 'locations#index'
+  get 'locations/:id', to: 'locations#show'
+  get '/events', to: 'events#index'
+  get 'events/:id', to: 'events#show'
+
+
 end

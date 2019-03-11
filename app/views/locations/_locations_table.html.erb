@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= "Name"%></th>
+      <th><%= "City"%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% locations.each do |location| %>
+      <tr>
+        <td><%= location.name %></td>
+        <td><%= location.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
