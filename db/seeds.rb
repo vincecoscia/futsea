@@ -39,11 +39,19 @@ l_five = Location.create(name: "Miami Soccer Station", street: "431 NW 79th St" 
 l_five_f_one = Field.create(game_type: 5,surface: "turf",outdoor: true, location: l_five)
 l_five_f_two = Field.create(game_type: 5,surface: "turf",outdoor: true, location: l_five)
 
+#Sunset Park
+l_six = Location.create(name: "Sunset Park", street: "4200 7th Ave" , city: "Brooklyn" , zipcode: "11232", state: "NY", url: "https://www.nycgovparks.org/parks/sunset-park", phone: "212-458-6365", neighborhood: "Brooklyn", description: "Test description for Sunset Park",mon_open: 19, mon_close: 22, tue_open: 19, tue_close: 22, wed_open: 19, wed_close: 22, thu_open: 19, thu_close: 22, fri_open: 19, fri_close: 22, sat_open: 19, sat_close: 22, sun_open: 19, sun_close: 22)
+
+l_six_f_one = Field.create(game_type: 11,surface: "grass",outdoor: true, location: l_six)
+l_six_f_two = Field.create(game_type: 7,surface: "grass",outdoor: true, location: l_six)
 
 
 Event.create(date: Date.today, time: '11:00', price: 1000, event_start: false, event_end: false, field: l_one_f_one )
 Event.create(date: Date.today, time: '12:00', price: 1000, event_start: false, event_end: false, field: l_one_f_one )
 Event.create(date: Date.today, time: '13:00', price: 1000, event_start: false, event_end: false, field: l_one_f_one )
+
+Event.create(date: Date.today, time: '20:00', price: 1200, event_start: false, event_end: false, field: l_four_f_one )
+Event.create(date: Date.today, time: '21:00', price: 1200, event_start: false, event_end: false, field: l_four_f_two )
 
 
 puts "Locations: #{Location.count}"

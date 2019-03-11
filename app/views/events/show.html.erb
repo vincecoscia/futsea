@@ -1,2 +1,9 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+
+<p><%= @event.time.strftime("%I:%M") %></p>
+<p><%= @event.field.location.name %></p>
+<p><%= @event.field.location.city %></p>
+<p><%= @event.field.game_type.to_s+" v "+@event.field.game_type.to_s  %></p>
+<p><%= number_to_currency(@event.price/100) %></p>
+
+
+

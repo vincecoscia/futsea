@@ -1,4 +1,4 @@
-<table>
+<table class="table">
   <thead>
     <tr>
       <th><%= "Name"%></th>
@@ -8,7 +8,7 @@
   <tbody>
     <% locations.each do |location| %>
       <tr>
-        <td><%= location.name %></td>
+        <td><%= link_to location.name, location_events_path(location) %></td>
         <td><%= location.city %></td>
       </tr>
     <% end %>

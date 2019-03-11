@@ -1,20 +1,31 @@
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th><%= "Time" %></th>
       <th><%= "Location"%></th>
       <th><%= "City" %></th>
-      <th><%= "Time" %></th>
+      <th><%= "Game Type" %></th>
       <th><%= "Price" %></th>
+      <th><%= "Reserve" %></th>
     </tr>
   </thead>
   <tbody>
     <% events.each do |event| %>
+      <% location = event.location %>
       <tr>
-        <td><%= event.field.location.name %></td>
-        <td><%= event.field.location.city %></td>
-        <td><%= event.time %></td>
-        <td><%= event.price %></td>
+        <td><%= event.time.strftime("%I:%M") %></td>
+        <td><%= location.name %></td>
+        <td><%= location.city %></td>
+        <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
+        <td><%= number_to_currency(event.price/100) %></td>
+        <td>
+          <div class="btn-group mb-2 btn btn-secondary btn-lg">
+            <%= link_to "Reserve", location_event_path(location, event) %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
