@@ -1,2 +1,4 @@
-<h1>Locations</h1>
-<%= render 'locations_home', locations: @locations %>
+<h1><%= link_to 'Locations', locations_path %></h1>
+<%= render 'locations/locations_table', locations: @locations %>
+<h1><%= link_to 'Events', events_path %></h1>
+<%= render 'events/events_table', events: @events %>
