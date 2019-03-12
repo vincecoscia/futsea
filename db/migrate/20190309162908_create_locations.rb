@@ -10,20 +10,11 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.string :phone
       t.string :neighborhood
       t.text :description
-      t.integer :mon_open
-      t.integer :mon_close
-      t.integer :tue_open
-      t.integer :tue_close
-      t.integer :wed_open
-      t.integer :wed_close
-      t.integer :thu_open
-      t.integer :thu_close
-      t.integer :fri_open
-      t.integer :fri_close
-      t.integer :sat_open
-      t.integer :sat_close
-      t.integer :sun_open
-      t.integer :sun_close
+      t.string :lon
+      t.string :lat
+      t.integer :price
+      t.integer :open
+      t.integer :close
 
       t.timestamps
     end
