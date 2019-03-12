@@ -20,7 +20,7 @@
         <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
         <td><%= number_to_currency(event.price/100) %></td>
         <td>
-          <div class="btn-group mb-2 btn btn-secondary btn-lg">
+          <div class="btn btn-info">
             <%= link_to "Reserve", location_event_path(event.location, event) %>
           </div>
         </td>

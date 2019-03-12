@@ -38,14 +38,28 @@
           <%= link_to 'Locations', locations_path,:class => "navbar-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'My Account', locations_path,:class => "navbar-link" %>
-        </li>
-        <li class="nav-item">
           <%= link_to 'Contact Us', locations_path,:class => "navbar-link" %>
         </li>
+          <% if current_user %>
+        <li class="nav-item">
+          <%= link_to "Profile", current_user %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, confirm: "Are you sure?" %>
+        </li>
+          <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path %>
+        </li>
+        <li  class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path %>
+        </li>
+        <% end %>
       </ul>
     </nav>
-
+      <% flash.each do |a, b| %>
+        <div class="alert alert-success"><%= b %></div>
+      <% end %>
     <%= yield %>
   </body>
 </html>
