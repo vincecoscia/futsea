@@ -1,5 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :event
-  has_one :location, through :event
+  belongs_to :user
+  has_one :location, through: :event
 
 end

@@ -17,3 +17,25 @@
  .navbar-link {
    margin-left: 10px;
  }
+
+ .btn a {
+   color: white;
+ }
+
+ a:hover {
+   text-decoration: none;
+}
+
+ .devise{
+   display: grid;
+   justify-items: center;
+ }
+
+ .fit {
+   margin-top: 30px;
+   padding: 20px;
+   background-color: #D4EDF9;
+   border: 1px solid #2A5E72;
+   border-radius: 10px
+
+ }

@@ -20,9 +20,13 @@
         <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
         <td><%= number_to_currency(event.price/100) %></td>
         <td>
-          <div class="btn btn-info">
-            <%= link_to "Reserve", location_event_path(event.location, event) %>
-          </div>
+          <% if event.reservations.find_by(user: current_user) %>
+              <p class="btn btn-success">Reserved</p>
+            <%else%>
+              <%= form_for([event.location, event, Reservation.new]) do |form| %>
+                <%= submit_tag "Reserve", class: "btn btn-primary"%>
+              <% end %>
+            <% end %>
         </td>
       </tr>
     <% end %>

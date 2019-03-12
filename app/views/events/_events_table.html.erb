@@ -1,13 +1,16 @@
 <table class="table">
   <thead>
     <tr>
-      <th><%= "Date" %></th>
-      <th><%= "Time" %></th>
-      <th><%= "Location"%></th>
-      <th><%= "City" %></th>
-      <th><%= "Game Type" %></th>
-      <th><%= "Price" %></th>
-      <th><%= "Reserve" %></th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>City</th>
+      <th>Game Type</th>
+      <th>Price</th>
+      <th>Current Players</th>
+      <th>Spots Available</th>
+      <th>Total Spots</th>
+      <th>Reserve</th>
     </tr>
   </thead>
   <tbody>
@@ -19,10 +22,18 @@
         <td><%= event.location.city %></td>
         <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
         <td><%= number_to_currency(event.price/100) %></td>
+        <td><%= event.reservations.count %></td>
+        <td><%= (event.field.game_type*2)-event.reservations.count %></td>
+        <td><%= event.field.game_type*2 %></td>
         <td>
-          <div class="btn-group mb-2 btn btn-secondary btn-lg">
-            <%= link_to "Reserve", location_event_path(event.location, event) %>
-          </div>
+            <% if event.reservations.find_by(user: current_user) %>
+              <p class="btn btn-success">Reserved</p>
+            <%else%>
+              <%= form_for([event.location, event, Reservation.new]) do |form| %>
+                <%= submit_tag "Reserve", class: "btn btn-primary"%>
+              <% end %>
+            <% end %>
+
         </td>
       </tr>
     <% end %>
