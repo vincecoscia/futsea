@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @location = Location.find(params[:location_id])
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 end

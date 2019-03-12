@@ -1,0 +1,18 @@
+<h3>Find Location:</h3>
+
+<%= form_tag root_path, method: :get do %>
+  <%= search_field_tag :term %>
+  <%= submit_tag "Go!" %>
+<% end %>
+
+<% unless params[:term].blank? %>
+
+  <% if @results.empty? %>
+    <p>Try search again</p>
+  <% else %>
+    <% @results.each do |result| %>
+      <p><%= link_to result.name, result %></p>
+    <% end %>
+  <% end %>
+
+<% end %>
