@@ -1,4 +1,5 @@
-<%= render 'search', locations: @locations %>
+
+<%= react_component 'Search' %>
 
 <h1><%= link_to 'Locations', locations_path %></h1>
 <%= render 'locations/locations_table', locations: @locations %>

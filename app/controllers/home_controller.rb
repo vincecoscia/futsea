@@ -1,11 +1,22 @@
 class HomeController < ApplicationController
 
   def index
-    @locations = Location.all
-    @events = Event.all
+    respond_to do |format|
+      format.html
+      format.json do
+        term = params[:term]
+        if term.present?
+          locations = Location.search(term)
+          results = locations
+        else
+          results = []
+        end
 
-    term = params[:term]
+        render json: results
 
-    @results = Location.where("name ILIKE ? OR city ILIKE ? OR zipcode ILIKE ?", "%#{term}%", "%#{term}%", "%#{term}%")
+       end
+    end
+      @locations = Location.all
+      @events = Event.all
   end
 end
