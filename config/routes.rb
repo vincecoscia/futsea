@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'locations/:id', to: 'locations#show'
   get '/events', to: 'events#index'
   get 'events/:id', to: 'events#show'
+  get '/search' => 'home#index'
 
   resources :locations, only: [:index, :show] do
     resources :events, only: [:index, :show]
