@@ -1,7 +1,48 @@
+<div class="devise">
+<div class="fit">
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_field :birthday %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Gender" %><br />
+    <%= f.select(:gender, options_for_select([['Male', 'Male'],['Female','Female'],['Prefer not to answer','None']], selected: (f.object.gender || 'Male'))) %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Prefered Position" %><br />
+    <%= f.select(:position, options_for_select([['FW', 'FW'],['MF','MF'],['DF','DF'],['GK','GK']], selected: (f.object.position || 'FW'))) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_area :about, autofocus: true %>
+  </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -28,7 +69,7 @@
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password %>
   </div>
 
   <div class="actions">
@@ -41,3 +82,5 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>
+</div>
