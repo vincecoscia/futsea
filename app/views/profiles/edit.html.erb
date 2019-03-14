@@ -1,0 +1,12 @@
+<h1><%= current_user.email%>'s Profile</h1>
+
+
+
+<%= form_with(model: @profile) do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :position %>
+    <%= form.select :position, options_for_select(["Keeper", "Midfield", "Defender", "Forward"]) %>
+
+    <%= form.submit %>
+<% end %>
