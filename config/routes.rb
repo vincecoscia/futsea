@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :update]
 
 
+  resources :cities, only: [:index]
   resources :locations, only: [:index, :show] do
     resources :events, only: [:index, :show] do
       resources :reservations, only: [:create]
