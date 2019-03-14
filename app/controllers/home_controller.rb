@@ -6,8 +6,7 @@ class HomeController < ApplicationController
       format.json do
         term = params[:term]
         if term.present?
-          locations = Location.search(term)
-          results = locations
+          results = Location.search(term)
         else
           results = []
         end

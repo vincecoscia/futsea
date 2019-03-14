@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
 
+  resources :cities, only: [:index]
   resources :locations, only: [:index, :show] do
     resources :events, only: [:index, :show] do
       resources :reservations, only: [:create]
