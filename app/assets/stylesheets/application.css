@@ -37,5 +37,9 @@
    background-color: #D4EDF9;
    border: 1px solid #2A5E72;
    border-radius: 10px
-
  }
+
+ .locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+}

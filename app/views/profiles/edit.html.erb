@@ -6,7 +6,7 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
     <%= form.label :position %>
-    <%= form.select :position, options_for_select(["Keeper", "Midfield", "Defender", "Forward"]) %>
+    <%= form.select :position, options_for_select(["Keeper", "Midfield", "Defender", "Forward"],@profile.position) %>
 
     <%= form.submit %>
 <% end %>

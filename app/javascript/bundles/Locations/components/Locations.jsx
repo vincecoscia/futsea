@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Table from './Table'
 import Filter from './Filter'
+import Information from './Information'
  
 class Locations extends Component {
   state = {
-            allCities: [],
+            cities: [],
             locations:  [],
             city: '',
+            location: {},
           }
 
   fetchLocations = (city) => {
@@ -24,28 +26,45 @@ class Locations extends Component {
     this.fetchLocations(city)
   }
 
+
+
+  switchLocation = (e,location) => {
+    e.preventDefault()
+    this.setState({ location: location})
+    console.log(location)
+    console.log(this.state.location)
+  }
+
   render(){
-    const { locations, city, allCities } = this.state
+    const { locations, city, cities, location } = this.state
     return(
-      <div>
-        <Filter
-          city={city}
-          locations={locations}
-          handleChange={this.handleChange}
-          allCities={allCities}
-        />
-        <h1>Locations</h1>
-        <Table
-          locations={locations}
-          city={city}
-         />
+      <div className='locations-grid'>
+        <div className='locations-grid-item'>
+          <Filter
+            city={city}
+            locations={locations}
+            handleChange={this.handleChange}
+            cities={cities}
+          />
+          <h1>Locations</h1>
+          <Table
+            locations={locations}
+            city={city}
+            location={location}
+            switchLocation={this.switchLocation}
+          />
+        </div>
+        <div className="locations-grid-item">
+          <Information
+            location={location} />
+        </div>
       </div>
     )
   }
 
   componentDidMount(){
     const { city } = this.state
-    axios.get('/cities').then(response => this.setState({allCities: response.data}) )
+    axios.get('/cities').then(response => this.setState({cities: response.data}) )
     this.fetchLocations(city)
   }
 }

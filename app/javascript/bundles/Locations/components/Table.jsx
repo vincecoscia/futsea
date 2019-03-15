@@ -11,8 +11,11 @@ const Table = props => (
         <tbody>
         {
           props.locations.map(location => (
-            <tr id={location.id} key={location.id}>
-              <td><a href={location.url}>{location.name}</a></td>
+              <tr id={location.id}
+                  key={location.id}
+                  value={location}
+                  onClick={e=> props.switchLocation(e,location)}>
+              <td>{location.name}</td>
               <td>{location.city}</td>
             </tr>
           ))

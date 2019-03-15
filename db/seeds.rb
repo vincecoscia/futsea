@@ -9,41 +9,46 @@
 puts "Seeding....."
 
 #Soccer Cage Brickell
-l_one = Location.create(name: "Soccer Cage Brickell", street: "301 SW 8th St" , city: "Miami" , zipcode: "33130", state: "FL", url: "https://www.soccercagemiami.com", phone: "305-343-1757", neighborhood: "Brickell", lon: "-", lat: "", price: 900, description: "Test description for Soccer Cage Brickell", open: 16, close: 24)
+l_one = Location.create(name: "Soccer Cage Brickell", street: "301 SW 8th St" , city: "Miami" , zipcode: "33130", state: "FL", url: "https://www.soccercagemiami.com", phone: "305-343-1757", neighborhood: "Brickell", lat: "25.7666", lon: "-80.1998", price: 900, description: "Test description for Soccer Cage Brickell", open: 16, close: 24)
 
 l_one_f_one = Field.create(game_type: 4,surface: "turf",outdoor: true, location: l_one)
 l_one_f_two = Field.create(game_type: 5,surface: "turf",outdoor: true, location: l_one)
 l_one_f_three = Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_one)
 
 #Downtown Soccer Miami
-l_two = Location.create(name: "Downtown Soccer Miami", street: "444 NW 5th St" , city: "Miami" , zipcode: "33128", state: "FL", url: "https://www.downtownsoccermiami.com", phone: "305-808-9997", neighborhood: "Downtown", lon: "-25.7666", lat: "80.1998", price: 1000, description: "Test description for Downtown Soccer Miami",open: 8, close: 22)
+l_two = Location.create(name: "Downtown Soccer Miami", street: "444 NW 5th St" , city: "Miami" , zipcode: "33128", state: "FL", url: "https://www.downtownsoccermiami.com", phone: "305-808-9997", neighborhood: "Downtown", lat: "25.7666", lon: "-80.1998", price: 1000, description: "Test description for Downtown Soccer Miami",open: 8, close: 22)
 
 l_two_f_one = Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_two)
 l_two_f_two = Field.create(game_type: 7,surface: "turf",outdoor: true, location: l_two)
 
 #"Brickell Soccer Rooftop
-l_three = Location.create(name: "Brickell Soccer Rooftop", street: "444 Brickell Ave, 2nd Fl" , city: "Miami" , zipcode: "33131", state: "FL", url: "http://soccerooftop.com", phone: "305-967-3512", neighborhood: "Brickell", lon: "-25.7691", lat: "80.1903", price: 1200, description: "Test description for Brickell Soccer Rooftop",open: 16, close: 24)
+l_three = Location.create(name: "Brickell Soccer Rooftop", street: "444 Brickell Ave, 2nd Fl" , city: "Miami" , zipcode: "33131", state: "FL", url: "http://soccerooftop.com", phone: "305-967-3512", neighborhood: "Brickell", lat: "25.7691", lon: "-80.1903", price: 1200, description: "Test description for Brickell Soccer Rooftop",open: 16, close: 24)
 
 l_three_f_one = Field.create(game_type: 5,surface: "turf",outdoor: true, location: l_three)
 l_three_f_two = Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_three)
 
 #Americas Got Soccer
-l_four = Location.create(name: "Americas Got Soccer", street: "3488 N Andrews Ave" , city: "Oakland Park" , zipcode: "33309", state: "FL", url: "http://www.americasgotsoccer.com/", phone: "954-990-0611", neighborhood: "Oakland Park", lon: "-26.1708", lat: "80.1453", price: 1200, description: "Test description for Americas Got Soccer",open: 18, close: 23)
+l_four = Location.create(name: "Americas Got Soccer", street: "3488 N Andrews Ave" , city: "Ft. Lauderdale" , zipcode: "33309", state: "FL", url: "http://www.americasgotsoccer.com/", phone: "9549900611", neighborhood: "Oakland Park", lat: "26.1708", lon: "-80.1453", price: 1200, description: "Test description for Americas Got Soccer",open: 18, close: 23)
 
 l_four_f_one = Field.create(game_type: 5,surface: "turf",outdoor: false, location: l_four)
 l_four_f_two = Field.create(game_type: 6,surface: "turf",outdoor: false, location: l_four)
 
 #Miami Soccer Station
-l_five = Location.create(name: "Miami Soccer Station", street: "431 NW 79th St" , city: "Miami" , zipcode: "33150", state: "FL", url: "https://www.miamisoccerstation.com/parkwebsite/miamisoccerstation", phone: "786-458-6365", neighborhood: "Brickell", lon: "-25.8474", lat: "80.2042", price: 1100, description: "Test description for Miami Soccer Station",open: 16, close: 22)
+l_five = Location.create(name: "Miami Soccer Station", street: "431 NW 79th St" , city: "Miami" , zipcode: "33150", state: "FL", url: "https://www.miamisoccerstation.com/parkwebsite/miamisoccerstation", phone: "786-458-6365", neighborhood: "Brickell", lat: "25.8474", lon: "-80.2042", price: 1100, description: "Test description for Miami Soccer Station",open: 16, close: 22)
 
 l_five_f_one = Field.create(game_type: 5,surface: "turf",outdoor: true, location: l_five)
 l_five_f_two = Field.create(game_type: 5,surface: "turf",outdoor: true, location: l_five)
 
-#Sunset Park
-l_six = Location.create(name: "Sunset Park", street: "4200 7th Ave" , city: "Brooklyn" , zipcode: "11232", state: "NY", url: "https://www.nycgovparks.org/parks/sunset-park", phone: "212-458-6365", neighborhood: "Brooklyn", lon: "-40.6527", lat: "74.0093", price: 1000, description: "Test description for Sunset Park",open: 19, close: 22)
+#SDG Soccer Complex
+l_six = Location.create(name: "SDG Soccer Complex", street: "16601 NE 15th Ave" , city: "Miami" , zipcode: "33162", state: "FL", url: "http://www.sdgsoccer.com/", phone: "3059750316", neighborhood: "North Miami Beach", lat: "25.9283", lon: "-80.1687", price: 1000, description: "Test description for SDG Soccer Complex",open: 16, close: 22)
 
-l_six_f_one = Field.create(game_type: 11,surface: "grass",outdoor: true, location: l_six)
-l_six_f_two = Field.create(game_type: 7,surface: "grass",outdoor: true, location: l_six)
+l_six_f_one = Field.create(game_type: 7,surface: "turf",outdoor: true, location: l_six)
+l_six_f_two = Field.create(game_type: 7,surface: "turf",outdoor: true, location: l_six)
+
+#Dowdy Field
+l_seven = Location.create(name: "Dowdy Field", street: "2100 Johnson St" , city: "Hollywood" , zipcode: "33020", state: "FL", url: "https://www.yelp.com/biz/dowdy-field-hollywood?osq=soccer+fields", phone: "9549900611", neighborhood: "Hollywood", lat: "26.0197", lon: "-80.1504", price: 700, description: "Test description for Dowdy Field",open: 18, close: 22)
+
+l_sevenf_one = Field.create(game_type: 11,surface: "turf",outdoor: true, location: l_seven)
 
 Field.all.each do |field|
   field.location.open.upto(field.location.close).each do |time|
