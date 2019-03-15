@@ -6,6 +6,7 @@ const Table = props => (
         <tr>
           <th>Name</th>
           <th>City</th>
+          <th>Neighborhood</th>
         </tr>
       </thead>
         <tbody>
@@ -17,6 +18,7 @@ const Table = props => (
                   onClick={e=> props.switchLocation(e,location)}>
               <td>{location.name}</td>
               <td>{location.city}</td>
+              <td>{location.neighborhood}</td>
             </tr>
           ))
         }

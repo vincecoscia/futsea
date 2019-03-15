@@ -1,16 +1,21 @@
 import React from 'react'
+import Map from './Map'
 
-const Information = props => (
-  <div>
-    <h2>{props.location.name}</h2>
-    <p>{props.location.street}</p>
-    <p>{props.location.city}, {props.location.state}</p>
-  </div>
-)
+const Information = props => {
+  if (!props.location.name) return null
+  return (
+    <div>
+      <h2>{props.location.name}</h2>
+      <p>{props.location.street}</p>
+      <p>{props.location.city}, {props.location.state}</p>
+      <Map
+      props={props} />
+    </div>
+  )
+}
+
 
 export default Information
-
-
 
 
 

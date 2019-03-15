@@ -31,8 +31,6 @@ class Locations extends Component {
   switchLocation = (e,location) => {
     e.preventDefault()
     this.setState({ location: location})
-    console.log(location)
-    console.log(this.state.location)
   }
 
   render(){

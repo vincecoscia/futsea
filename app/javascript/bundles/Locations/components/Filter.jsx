@@ -10,10 +10,11 @@ const Filter = props => (
       className="form-control"
       defaultValue=''
     >
+      <option value="">Select a City</option>
       {
         props.cities.map(city => (
           <option key={city} value={city} >
-            {city}, {state}
+            {city}
           </option>
         ))
       }
