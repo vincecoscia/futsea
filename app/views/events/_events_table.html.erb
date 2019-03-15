@@ -1,3 +1,8 @@
+<div class='event-filter'>
+  <button type="button" class="btn btn-default btn-arrow-left">Prev Day</button>
+  <span><%= params[:date] || Date.current %></span>
+  <button type="button" class="btn btn-default btn-arrow-right">Next Day</button>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +22,7 @@
     <% events.each do |event| %>
       <tr>
         <td><%= event.date %></td>
-        <td><%= event.time.strftime("%I:%M") %></td>
+        <td><%= event.time.strftime("%_I:%M %p") %></td>
         <td><%= event.location.name %></td>
         <td><%= event.location.city %></td>
         <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>

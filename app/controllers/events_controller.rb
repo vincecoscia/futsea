@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
   def index
+    date = params[:date] || Date.current
+    # @events = Event.where( date: date )
     @location = Location.find(params[:location_id])
+    @events = Location.find_by_id(params[:location_id]).events.where( date: Date.today )
   end
 
   def show

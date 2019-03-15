@@ -45,18 +45,16 @@
   column-gap: 40px;
 }
 
-#map{
-  width: 30vw;
-  height: 400px;
-  background-color: azure;
-  margin: 0 auto;
-
-
+a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-@media only screen and (max-width: 600px) {
-  #map{
-    width: 400px;
-    height: 400px;
-  }
+/* Events */
+.btn-arrow-left, .btn-arrow-right {
+  border: 1px solid black;
+}
+
+.event-filter {
+
 }
