@@ -1,5 +1,5 @@
 import React from 'react'
-import Map from './Map'
+
 
 const Information = props => {
   if (!props.location.name) return null
