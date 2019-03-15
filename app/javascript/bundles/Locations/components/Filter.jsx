@@ -5,9 +5,8 @@ const Filter = props => (
   <div>
     <label>Choose your City:</label>
     <select
-
       onChange={props.handleChange}
-      className="form-control"
+      className="form-control col-4"
       defaultValue=''
     >
       <option value="">Select a City</option>
