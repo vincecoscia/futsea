@@ -29,13 +29,14 @@ export default class Search extends Component {
           value={term}
           onChange={this.handleChange}
           autoComplete="off"
+          className="form-control col-5"
         />
         {results.length > 0 && term.length > 0 && (
           <div>
             {results.map((result, i) => {
               return (
                 <p key={i}>
-                  <a href={`/locations/${result.id}/events`}>{result.name}</a>
+                  <a href={`/locations/${result.id}/events`}>{result.name} - {result.city}</a>
                 </p>
               );
             })}

@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% events.order(:time).each do |event| %>
+    <% events.order(:time).last(5).each do |event| %>
       <tr>
         <td><%= event.date %></td>
         <td><%= event.time.strftime("%I:%M") %></td>
