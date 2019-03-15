@@ -5,12 +5,15 @@ const Filter = props => (
   <div>
     <label>Choose your City:</label>
     <select
-      value={props.city}
+
       onChange={props.handleChange}
+      className="form-control"
+      defaultValue=''
     >
+      <option value="">Select a City</option>
       {
-        props.allCities.map(city => (
-          <option key={city} value={city}>
+        props.cities.map(city => (
+          <option key={city} value={city} >
             {city}
           </option>
         ))

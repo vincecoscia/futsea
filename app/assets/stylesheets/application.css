@@ -37,5 +37,25 @@
    background-color: #D4EDF9;
    border: 1px solid #2A5E72;
    border-radius: 10px
-
  }
+
+ .locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+}
+
+#map{
+  width: 30vw;
+  height: 400px;
+  background-color: azure;
+  margin: 0 auto;
+
+
+}
+
+@media only screen and (max-width: 600px) {
+  #map{
+    width: 400px;
+    height: 400px;
+  }
+}
