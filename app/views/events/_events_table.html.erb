@@ -9,8 +9,10 @@
       class: "btn btn-default btn-arrow-left",
       id: 'date-prev-day' %>
 
-
 </div>
+<% if events.empty? %>
+  <p>No Events Available for Selected Date</p>
+<% else %>
 <table class="table">
   <thead>
     <tr>
@@ -27,30 +29,32 @@
     </tr>
   </thead>
   <tbody>
-    <% events.each do |event| %>
-      <tr>
-        <td><%= event.date %></td>
-        <td><%= event.time.strftime("%_I:%M %p") %></td>
-        <td><%= event.location.name %></td>
-        <td><%= event.location.city %></td>
-        <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
-        <td><%= number_to_currency(event.price/100) %></td>
-        <td><%= event.reservations.count %></td>
-        <td><%= (event.field.game_type*2)-event.reservations.count %></td>
-        <td><%= event.field.game_type*2 %></td>
-        <td>
-            <% if event.reservations.find_by(user: current_user) %>
-              <p class="btn btn-success">Reserved</p>
-            <%else%>
-              <%= form_for([event.location, event, Reservation.new]) do |form| %>
-                <%= submit_tag "Reserve", class: "btn btn-primary"%>
-              <% end %>
-            <% end %>
 
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% events.each do |event| %>
+        <tr>
+          <td><%= event.date %></td>
+          <td><%= event.time.strftime("%_I:%M %p") %></td>
+          <td><%= event.location.name %></td>
+          <td><%= event.location.city %></td>
+          <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
+          <td><%= number_to_currency(event.price/100) %></td>
+          <td><%= event.reservations.count %></td>
+          <td><%= (event.field.game_type*2)-event.reservations.count %></td>
+          <td><%= event.field.game_type*2 %></td>
+          <td>
+              <% if event.reservations.find_by(user: current_user) %>
+                <p class="btn btn-success">Reserved</p>
+              <%else%>
+                <%= form_for([event.location, event, Reservation.new]) do |form| %>
+                  <%= submit_tag "Reserve", class: "btn btn-primary"%>
+                <% end %>
+              <% end %>
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 

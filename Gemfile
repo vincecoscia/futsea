@@ -8,6 +8,7 @@ gem 'hirb'
 gem 'react_on_rails'
 gem 'devise'
 gem 'whenever'
+gem 'will_paginate-bootstrap4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
