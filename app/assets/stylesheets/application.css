@@ -54,3 +54,30 @@ a:hover {
 .btn-arrow-left, .btn-arrow-right {
   border: 1px solid black;
 }
+
+/* Locations  */
+
+.location-info {
+  margin: 20px;
+}
+.map{
+  margin-left: 5px;
+}
+.content{
+  display: flex;
+}
+.thumbnail {
+  margin: 5px;
+  position: relative;
+  width: 200px;
+  overflow: hidden;
+}
+
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+p {
+  margin-bottom: 0;
+}

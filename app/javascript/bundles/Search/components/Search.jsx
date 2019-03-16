@@ -36,7 +36,7 @@ export default class Search extends Component {
             {results.map((result, i) => {
               return (
                 <p key={i}>
-                  <a href={`/locations/${result.id}/events`}>{result.name} - {result.city}</a>
+                  <a href={`/locations/${result.id}/events?date=${result.today}`}>{result.name} - {result.city}</a>
                 </p>
               );
             })}

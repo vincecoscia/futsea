@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 2019_03_14_201242) do
     t.integer "price"
     t.integer "open"
     t.integer "close"
+    t.string "img"
+    t.string "img2"
+    t.string "img3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
