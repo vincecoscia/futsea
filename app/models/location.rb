@@ -18,6 +18,7 @@ class Location < ApplicationRecord
       open:           open,
       close:          close,
       price:          price,
+      today:          Date.today,
     }
   end
 end

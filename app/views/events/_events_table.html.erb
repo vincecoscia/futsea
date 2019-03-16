@@ -1,13 +1,15 @@
 <div class='event-filter'>
   <%= link_to "Prev Day",
-      location_events_path(location: params[:location_id], date: (Date.parse(params[:date])-1)),
+      location_events_path(date: Date.parse(params[:date])-1),
       class: "btn btn-default btn-arrow-left",
       id: 'date-prev-day' %>
   <span><%= params[:date] || Date.current %></span>
   <%= link_to "Next Day",
-      location_events_path(location: params[:location_id], date: (Date.parse(params[:date])+1)),
+      location_events_path(date: Date.parse(params[:date])+1),
       class: "btn btn-default btn-arrow-left",
       id: 'date-prev-day' %>
+
+
 </div>
 <table class="table">
   <thead>

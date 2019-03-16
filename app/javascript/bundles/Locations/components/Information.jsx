@@ -9,7 +9,7 @@ const Information = props => {
       <h2>{props.location.name}</h2>
       <p>{props.location.street}</p>
       <p>{props.location.city}, {props.location.state}</p>
-      <a href={`/locations/${props.location.id}/events`} className='btn btn-primary'>See Events</a>
+      <a href={`/locations/${props.location.id}/events?date=${props.location.today}`} className='btn btn-primary'>See Events</a>
     </div>
   )
 }
