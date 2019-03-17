@@ -7,4 +7,8 @@ class Event < ApplicationRecord
   has_many :users, through: :reservations
 
   scope :today, -> { where(date: Date.today ) }
+  scope :ordered,   ->  { order(time: :asc) }
+  scope :current_date, -> { where("date >= ?", Date.today)}
+
+
 end

@@ -15,6 +15,9 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.integer :price
       t.integer :open
       t.integer :close
+      t.string :img
+      t.string :img2
+      t.string :img3
 
       t.timestamps
     end

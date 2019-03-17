@@ -26,8 +26,6 @@ class Locations extends Component {
     this.fetchLocations(city)
   }
 
-
-
   switchLocation = (e,location) => {
     e.preventDefault()
     this.setState({ location: location})

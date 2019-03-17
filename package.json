@@ -6,9 +6,11 @@
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
+    "mapbox-gl": "^0.53.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-map-gl": "^4.1.1",
     "react-on-rails": "11.1.8",
     "react-select": "^2.4.2"
   },

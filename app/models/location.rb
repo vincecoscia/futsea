@@ -18,6 +18,10 @@ class Location < ApplicationRecord
       open:           open,
       close:          close,
       price:          price,
+      img:            img,
+      img2:           img2,
+      img3:           img3,
+      today:          Date.today,
     }
   end
 end

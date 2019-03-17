@@ -1,2 +1,6 @@
 <h1><%= @location.name %></h1>
-<%= render 'events/events_table', events: @location.events %>
+<h3><%= @location.street %></h3>
+<h3><%= @location.city %>, <%= @location.state %> <%= @location.zipcode %></h3>
+
+<%= render 'events/events_table', events: @events%>
+<%= will_paginate @events %>

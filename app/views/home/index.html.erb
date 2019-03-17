@@ -3,6 +3,7 @@
 
 <h1><%= 'Locations' %></h1>
 <!-- <%= react_component 'Locations' %> -->
+<%= request.location.city %>
 
 <h1><%= 'Events' %></h1>
 <%= render 'events/events_home_table', events: @events.today %>
