@@ -57,11 +57,14 @@
                 <%else%>
                   <%= form_for([event.location, event, Reservation.new]) do |form| %>
                     <%= button_tag "Reserve", class: "btn btn-primary"%>
-                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                      data-description="Reserve your field!"
-                      data-amount="1000"
-                      data-locale="auto"></script>
+                      <% if current_user %>
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Reserve your field!"
+                          data-amount= <%= event.price %>
+                          data-email= <%= current_user.email %>
+                          data-locale="auto"></script>
+                      <% end %>
                   <% end %>  <%# button_tag %>
                 <% end %>
               <% end %>
