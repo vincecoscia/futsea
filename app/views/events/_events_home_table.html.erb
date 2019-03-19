@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <% events.event_open.ordered_players.first(20).each do |event| %>
+      <% events.event_open.ordered_players.first(20).sample(8).each do |event| %>
         <tr>
         <td><%= event.date.strftime("%m/%d/%Y") %></td>
         <td><%= event.time.strftime("%I:%M %p") %></td>
