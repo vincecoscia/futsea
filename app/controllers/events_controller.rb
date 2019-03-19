@@ -7,10 +7,14 @@ class EventsController < ApplicationController
     per_page  = 5
     @location = Location.find(params[:location_id])
     @events = Location.find_by_id(params[:location_id]).events.where( date: date).ordered.current_date.paginate(page: page, per_page: per_page)
+
   end
 
   def show
     @event = Event.find(params[:id])
+  end
+
+  def update
   end
 
 end

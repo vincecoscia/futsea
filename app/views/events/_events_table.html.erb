@@ -28,23 +28,23 @@
       </tr>
     </thead>
     <tbody>
-
-        <% events.each do |event| %>
-          <tr>
-            <td><%= event.date %></td>
-            <td><%= event.time.strftime("%_I:%M %p") %></td>
-            <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
-            <td><%= number_to_currency(event.price/100) %></td>
-            <td>
-            <% event.reservations.each do |res| %>
-              <%= link_to profile_path(res.user) do %>
-                <%= image_tag res.user.profile.pic,
-                  width: 25,
-                  height: 25,
-                  style: "border-radius:100%; object-fit:cover;" %>
-              <% end %>
+      <% events.each do |event| %>
+        <tr>
+          <td><%= event.date %></td>
+          <td><%= event.time.strftime("%_I:%M %p") %></td>
+          <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
+          <td><%= number_to_currency(event.price/100) %></td>
+          <td>
+          <% event.reservations.each do |res| %>
+            <%= link_to profile_path(res.user) do %>
+             <% if res.user.profile.pic.attached? %>
+              <%= image_tag res.user.profile.pic,
+                width: 25,
+                height: 25,
+                style: "border-radius:100%; object-fit:cover;" %>
             <% end %>
-
+            <% end %>
+          <% end %>
             </td>
             <td><%= (event.field.game_type*2)-event.reservations.count %></td>
             <td><%= event.field.game_type*2 %></td>
