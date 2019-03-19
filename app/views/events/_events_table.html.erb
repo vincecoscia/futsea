@@ -18,8 +18,6 @@
     <tr>
       <th>Date</th>
       <th>Time</th>
-      <th>Location</th>
-      <th>City</th>
       <th>Game Type</th>
       <th>Price</th>
       <th>Current Players</th>
@@ -34,21 +32,33 @@
         <tr>
           <td><%= event.date %></td>
           <td><%= event.time.strftime("%_I:%M %p") %></td>
-          <td><%= event.location.name %></td>
-          <td><%= event.location.city %></td>
           <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
           <td><%= number_to_currency(event.price/100) %></td>
-          <td><%= event.reservations.count %></td>
+          <td>
+          <% event.reservations.each do |res| %>
+            <%= link_to profile_path(res.user) do %>
+              <%= image_tag res.user.profile.pic,
+                width: 25,
+                height: 25,
+                style: "border-radius:100%; object-fit:cover;" %>
+            <% end %>
+          <% end %>
+
+          </td>
           <td><%= (event.field.game_type*2)-event.reservations.count %></td>
           <td><%= event.field.game_type*2 %></td>
           <td>
+            <% if event.reservations.count ==  event.field.game_type * 2 %>
+              <button class="btn btn-outline-" disabled>Unavailable</button>
+            <% else %>
               <% if event.reservations.find_by(user: current_user) %>
-                <p class="btn btn-success">Reserved</p>
+                <button class="btn btn-success" disabled>Reserved</button>
               <%else%>
                 <%= form_for([event.location, event, Reservation.new]) do |form| %>
                   <%= submit_tag "Reserve", class: "btn btn-primary"%>
-                <% end %>
+                <% end %>  <%# button_tag %>
               <% end %>
+            <% end %>
 
           </td>
         </tr>

@@ -79,8 +79,42 @@ Field.all.each do |field|
   end
 end
 
+
+
+#create users and reservations
+
+require 'open-uri'
+
+# User.destroy_all
+
+100.times do |n|
+  user = User.create!(
+          email:      Faker::Internet.email,
+          password:   'password'
+        )
+  profile = Profile.create!(
+    name: Faker::Name.first_name,
+    position:  ["Forward", "Midfielder","Defender","Goalie"].sample,
+    user:       user
+  )
+  url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{rand(1..20)}.jpg"
+  image = open(url)
+  p profile.pic.attach(io: image, filename: "pic.jpg")
+  p n
+end
+
+
+1000.times do |n|
+  e = Event.count
+  u = User.count
+  Reservation.create(
+    event_id: rand(1..e).to_i,
+    user_id:  rand(1..u).to_i,
+  )
+end
+
 puts "Locations: #{Location.count}"
 puts "Fields: #{Field.count}"
 puts "Events: #{Event.count}"
-
-
+puts "#{User.count} users in the system..."
+puts "#{Reservation.count} reservations..."

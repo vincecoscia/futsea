@@ -1,17 +1,20 @@
 <table class="table">
   <thead>
     <tr>
-      <th><%= "Date" %></th>
-      <th><%= "Time" %></th>
-      <th><%= "Location"%></th>
-      <th><%= "City" %></th>
-      <th><%= "Game Type" %></th>
-      <th><%= "Price" %></th>
-      <th><%= "Reserve" %></th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>City</th>
+      <th>Game Type</th>
+      <th>Price</th>
+      <th>Current Players</th>
+      <th>Spots Available</th>
+      <th>Total Spots</th>
+      <th>Reserve</th>
     </tr>
   </thead>
   <tbody>
-    <% events.order(:time).last(5).each do |event| %>
+    <% events.order(:time).last(20).each do |event| %>
       <tr>
         <td><%= event.date %></td>
         <td><%= event.time.strftime("%I:%M") %></td>
@@ -19,6 +22,21 @@
         <td><%= event.location.city %></td>
         <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
         <td><%= number_to_currency(event.price/100) %></td>
+        <td>
+          <% event.reservations.each do |res| %>
+          <%= link_to profile_path(res.user) do %>
+            <%= image_tag res.user.profile.pic,
+                width: 20,
+                height: 20,
+                style: "border-radius:100%; object-fit:cover;" %>
+          <% end %>
+        <% end %>
+
+        </td>
+        <td><%= (event.field.game_type*2)-event.reservations.count %></td>
+        <td><%= event.field.game_type*2 %></td>
+
+
         <td>
           <% if event.reservations.find_by(user: current_user) %>
               <p class="btn btn-success">Reserved</p>

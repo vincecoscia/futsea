@@ -1,5 +1,11 @@
-<h1>Profile Show</h1>
+<h1><%= @profile.name.capitalize.pluralize %> Profile</h1>
 
+<div>
+  <%= image_tag @profile.pic.attached? ? @profile.pic : "https://i.imgur.com/VffWbcl.png",
+      width: 200,
+      height: 200,
+      style: "border-radius:100%; object-fit:cover;" %>
+</div>
 <p><%= @profile.name.capitalize %> likes to play <%= @profile.position %></p>
 <%= link_to "Edit Profile", edit_profile_path(current_user), :class => "btn btn-primary"  %>
 
