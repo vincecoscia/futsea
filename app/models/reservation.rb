@@ -5,16 +5,26 @@ class Reservation < ApplicationRecord
 
   after_create :update_event_status
 
+  def max_players
+    self.event.field.game_type * 2
+  end
+
+  def current_players
+    self.event.reservations.count
+  end
+
+
   def update_event_status
     p 'status update check'
-    players = self.event.field.game_type*2
-    if self.event.reservations.count == players
-      self.event.event_full = true
-      p 'event now full'
+    if current_players == max_players
+      self.event.update_attribute(:event_full, true)
+      p '============== event now full ============'
     else
     p "#{self.event.reservations.count} in event"
     end
   end
+
+
 
 
 end

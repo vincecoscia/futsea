@@ -64,7 +64,7 @@
 
  Field.all.each do |field|
    field.location.open.upto(field.location.close).each do |time|
-     0.upto(7).each do |day|
+     0.upto(3).each do |day|
        date = Date.today + day.days
        time = "#{time}:00"
        Event.create(
@@ -97,18 +97,18 @@ require 'open-uri'
      position:  ["Forward", "Midfielder","Defender","Goalie"].sample,
      user:       user
    )
-   url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{rand(1..20)}.jpg"
+  url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{rand(1..20)}.jpg"
    image = open(url)
-   p profile.pic.attach(io: image, filename: "pic.jpg")
-   p n
+   profile.pic.attach(io: image, filename: "pic.jpg")
+   p "#{n} users"
  end
 
 
 2000.times do |n|
-  e = Event.count
+  e = Event.event_open.sample.id
   u = User.count
   Reservation.create(
-    event_id: rand(1..e).to_i,
+    event_id: e,
     user_id:  rand(1..u).to_i,
   )
 end
