@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_143614) do
     t.integer "price"
     t.boolean "event_end"
     t.boolean "event_start"
+    t.boolean "event_full", default: false
     t.bigint "field_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

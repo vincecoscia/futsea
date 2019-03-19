@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :price
       t.boolean :event_end
       t.boolean :event_start
+      t.boolean :event_full, :default => false
       t.references :field, foreign_key: true
 
       t.timestamps
