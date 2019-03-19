@@ -37,10 +37,12 @@
           <td>
           <% event.reservations.each do |res| %>
             <%= link_to profile_path(res.user) do %>
+             <% if res.user.profile.pic.attached? %>
               <%= image_tag res.user.profile.pic,
                 width: 25,
                 height: 25,
                 style: "border-radius:100%; object-fit:cover;" %>
+            <% end %>
             <% end %>
           <% end %>
 
