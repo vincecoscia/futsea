@@ -7,8 +7,9 @@
       style: "border-radius:100%; object-fit:cover;" %>
 </div>
 <p><%= @profile.name.capitalize %> likes to play <%= @profile.position %></p>
-<%= link_to "Edit Profile", edit_profile_path(current_user), :class => "btn btn-primary"  %>
-
+<% if current_user.id == @profile.user.id %>
+  <%= link_to "Edit Profile", edit_profile_path(current_user), :class => "btn btn-primary"  %>
+<%end%>
 <h1><%= @profile.name.capitalize.pluralize %> Events</h1>
 
 <table class="table">

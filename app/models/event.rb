@@ -10,6 +10,14 @@ class Event < ApplicationRecord
   scope :ordered,   ->  { order(time: :asc) }
   scope :current_date, -> { where("date >= ?", Date.today)}
 
+  def game_type
+    self.event.field.game_type
+  end
+
+  def calcuclate_remaining_spots
+    (self.game_type * 2) - self.reservations.count
+  end
+
 
 end
 

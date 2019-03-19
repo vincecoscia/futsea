@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get '/search' => 'home#index'
 
   devise_for :users
-
+  
+  resources :charges
   resource :profile, only: [:edit]
   resources :profiles, only: [:show, :update]
 
