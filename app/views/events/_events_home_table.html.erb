@@ -1,21 +1,22 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Location</th>
-      <th>City</th>
-      <th>Game Type</th>
-      <th>Price</th>
-      <th>Current Players</th>
-      <th>Spots Available</th>
-      <th>Total Spots</th>
-      <th>Reserve</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% events.order(:time).last(20).each do |event| %>
+<div class="table-container">
+  <table class="table table-hover">
+    <thead class="thead-light">
       <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Location</th>
+        <th>City</th>
+        <th>Game Type</th>
+        <th>Price</th>
+        <th>Current Players</th>
+        <th>Spots Available</th>
+        <th>Total Spots</th>
+        <th>Reserve</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% events.order(:time).last(20).each do |event| %>
+        <tr>
         <td><%= event.date %></td>
         <td><%= event.time.strftime("%I:%M") %></td>
         <td><%= event.location.name %></td>
@@ -33,12 +34,9 @@
           <% end %>
           <% end %>
         <% end %>
-
-        </td>
-        <td><%= (event.field.game_type*2)-event.reservations.count %></td>
-        <td><%= event.field.game_type*2 %></td>
-
-
+          </td>
+          <td><%= (event.field.game_type*2)-event.reservations.count %></td>
+          <td><%= event.field.game_type*2 %></td>
         <td>
           <% if event.reservations.find_by(user: current_user) %>
               <button class="btn btn-success" disabled>Reserved</button>
@@ -52,11 +50,10 @@
                     data-email= <%= current_user.email %>
                     data-locale="auto"></script>
               <% end %>
-            <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
