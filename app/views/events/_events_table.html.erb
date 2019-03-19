@@ -1,14 +1,13 @@
+<span><%= @date %></span>
 <div class='event-filter'>
-  <%= link_to "Prev Day",
-      location_events_path(date: Date.parse(params[:date])-1),
-      class: "btn btn-primary btn-arrow-left",
-      id: 'date-prev-day' %>
-  <span><%= params[:date] || Date.current %></span>
-  <%= link_to "Next Day",
-      location_events_path(date: Date.parse(params[:date])+1),
-      class: "btn btn-primary btn-arrow-left",
-      id: 'date-prev-day' %>
-
+  <%= link_to "Prev Week", location_events_path(date: (@date - 1.week).to_date ) %>
+  <% (@date..(@date + 1.week).to_date).each do |day| %>
+    <%= link_to day.strftime("%^a %-d %b"),
+        location_events_path(date: day),
+        class: "btn btn-#{@date == day ? 'primary' : 'secondary'}",
+        id: "date-#{day.strftime('%Y-%m-%d')}" %>
+  <% end %>
+  <%= link_to "Next Week", location_events_path(date: (@date + 1.week).to_date ) %>
 </div>
 <% if events.empty? %>
   <p>No Events Available for Selected Date</p>
