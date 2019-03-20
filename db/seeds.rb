@@ -92,7 +92,7 @@ require 'open-uri'
      position:  ["Forward", "Midfielder","Defender","Goalie"].sample,
      user:       user
    )
-  url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{rand(1..20)}.jpg"
+  url = "https://randomuser.me/api/portraits/#{['men', 'women'].sample}/#{rand(1..20)}.jpg"
    image = open(url)
    profile.pic.attach(io: image, filename: "pic.jpg")
    p "#{n} users"
