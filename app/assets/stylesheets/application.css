@@ -14,7 +14,6 @@
  *= require_self
  */
 
- @import "social-share-button";
 
 
  body {
@@ -211,12 +210,6 @@ a.navbar-brand:hover {
   left: 0;
 }
 
-/* .logo-ball:hover {
-  -webkit-animation: shake 1s;
-    animation: shake 1s;
-} */
-
-
 .link-style {
   color: white;
   text-decoration: none;
@@ -228,19 +221,9 @@ a.navbar-brand:hover {
 }
 
 .bg-gradient {
-
   border-bottom: 2px solid #fdc5f5;
-
-  /* border-width: 10px;
-  border-image-slice: 1;
-  border-color: #fdc5f5;
-  /* border-image: linear-gradient(to left, #2b3248, ; */
-  /* border-top: none; */
-  /* border-left: none; */
-  /* border-right: none; */
   background-color: #2b3248;
   box-shadow: 0px 1px 15px #A9A9A9
-
 }
 
 .navbar {
@@ -262,11 +245,7 @@ button.stripe-button-el>span {
   border-radius: 10px;
   margin-bottom: 0 !important;
 }
-/* .table td, .table th {
-  border-color: none !important;
-  border-radius: 10px;
-  padding: 3px;
-} */
+
 .card-container {
   display: grid;
   width: 1fr;
