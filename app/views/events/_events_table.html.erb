@@ -1,19 +1,20 @@
 
 <div class='event-filter'>
-  <div>
+  <!-- <div>
     <%= link_to "Prev Week", location_events_path(date: (@date - 1.week).to_date ) %>
-  </div>
+  </div> -->
     <div id="week">
-      <% (@date..(@date + 1.week).to_date).each do |day| %>
+      <% a = Date.today%>
+      <% (a..(a + 1.week).to_date).each do |day| %>
         <%= link_to day.strftime("%^a %-d %b"),
             location_events_path(date: day),
             class: "btn btn-#{@date == day ? 'primary' : 'secondary'}",
             id: "date-#{day.strftime('%Y-%m-%d')}" %>
       <% end %>
     </div>
-  <div>
+  <!-- <div>
     <%= link_to "Next Week", location_events_path(date: (@date + 1.week).to_date ) %>
-  </div>
+  </div> -->
 </div>
 <% if events.empty? %>
   <p>No Events Available for Selected Date</p>
@@ -54,7 +55,7 @@
             <td><%= (event.field.game_type*2)-event.reservations.count %></td>
             <td><%= event.field.game_type*2 %></td>
             <td>
-              <% if event.reservations.count ==  event.field.game_type * 2 %>
+              <% if event.event_full? || event.datetime < DateTime.now-4.hours %>
                 <button class="btn btn-outline" disabled>Unavailable</button>
               <% else %>
                 <% if event.reservations.find_by(user: current_user) %>
@@ -70,10 +71,9 @@
                           data-email= <%= current_user.email %>
                           data-locale="auto"></script>
                       <% end %>
-                  <% end %>  <%# button_tag %>
+                  <% end %>
                 <% end %>
               <% end %>
-
             </td>
           </tr>
         <% end %>
