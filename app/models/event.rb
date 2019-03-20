@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   scope :current_date, -> { where("date >= ?", Date.today)}
   scope :event_open, -> { where("event_full = ?", false )}
   scope :event_closed, -> { where("event_full = ?", true )}
-  scope :ordered_players, -> { order(current_players: :desc) }
+  scope :ordered_players, -> { left_joins(:reservations).group(:id).order("count(reservations.event_id) DESC") }
 
   def max_players
     (self.field.game_type) * 2

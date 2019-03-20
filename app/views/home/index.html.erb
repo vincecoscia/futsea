@@ -3,7 +3,8 @@
 
 <!-- <%= react_component 'Locations' %> -->
 <%= request.location.city %>
-
-<h1><%= 'Events' %></h1>
-<%= render 'events/events_home_table', events: @events.today %>
+  <div class="header-container" id="events-header">
+    <h1><span><%= Emoji.find_by_alias("fire").raw %></span> Popular Events <span><%= Emoji.find_by_alias("fire").raw %></span></h1>
+  </div>
+    <%= render 'events/events_home_table', events: @events.today %>
 </div>

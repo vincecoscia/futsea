@@ -19,7 +19,7 @@ export default class Search extends Component {
   render() {
     const { results, term } = this.state;
     return (
-      <div>
+      <div className="header-container" id="searchbar">
         <label htmlFor="term">
           <h3>Find Location:</h3>
         </label>
@@ -32,11 +32,19 @@ export default class Search extends Component {
           className="form-control col-5"
         />
         {results.length > 0 && term.length > 0 && (
-          <div>
+          <div className="suggestions">
+
             {results.map((result, i) => {
               return (
                 <p key={i}>
-                  <a href={`/locations/${result.id}/events?date=${result.today}`}>{result.name} - {result.city}</a>
+                  <a
+                    id="suggestion"
+                    href={`/locations/${result.id}/events?date=${
+                      result.today
+                    }`}
+                  >
+                    {result.name} - {result.city}
+                  </a>
                 </p>
               );
             })}

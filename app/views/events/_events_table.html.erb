@@ -1,14 +1,19 @@
-<div class='event-filter'>
-  <%= link_to "Prev Day",
-      location_events_path(date: Date.parse(params[:date])-1),
-      class: "btn btn-primary btn-arrow-left",
-      id: 'date-prev-day' %>
-  <span><%= params[:date] || Date.current %></span>
-  <%= link_to "Next Day",
-      location_events_path(date: Date.parse(params[:date])+1),
-      class: "btn btn-primary btn-arrow-left",
-      id: 'date-prev-day' %>
 
+<div class='event-filter'>
+  <div>
+    <%= link_to "Prev Week", location_events_path(date: (@date - 1.week).to_date ) %>
+  </div>
+    <div id="week">
+      <% (@date..(@date + 1.week).to_date).each do |day| %>
+        <%= link_to day.strftime("%^a %-d %b"),
+            location_events_path(date: day),
+            class: "btn btn-#{@date == day ? 'primary' : 'secondary'}",
+            id: "date-#{day.strftime('%Y-%m-%d')}" %>
+      <% end %>
+    </div>
+  <div>
+    <%= link_to "Next Week", location_events_path(date: (@date + 1.week).to_date ) %>
+  </div>
 </div>
 <% if events.empty? %>
   <p>No Events Available for Selected Date</p>
@@ -31,7 +36,7 @@
       <% events.each do |event| %>
         <tr>
           <td><%= event.date %></td>
-          <td><%= event.time.strftime("%_I:%M %p") %></td>
+          <td><%= event.time.strftime("%l %M %p") %></td>
           <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
           <td><%= number_to_currency(event.price/100) %></td>
           <td>
@@ -57,11 +62,14 @@
                 <%else%>
                   <%= form_for([event.location, event, Reservation.new]) do |form| %>
                     <%= button_tag "Reserve", class: "btn btn-primary"%>
-                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                      data-description="Reserve your field!"
-                      data-amount="1000"
-                      data-locale="auto"></script>
+                      <% if current_user %>
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Reserve your field!"
+                          data-amount= <%= event.price %>
+                          data-email= <%= current_user.email %>
+                          data-locale="auto"></script>
+                      <% end %>
                   <% end %>  <%# button_tag %>
                 <% end %>
               <% end %>
