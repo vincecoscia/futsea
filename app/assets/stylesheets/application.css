@@ -20,14 +20,36 @@
  body {
    margin-top: 120px;
    background-color: #fbf9f9;
- }
+   min-height: 100vh; /* will cover the 100% of viewport */
+   display: block;
+   position: relative;
+   padding-bottom: 100px;
+   }
+
  /* #fbf9f9; */
  .navbar-link {
    margin-left: 10px;
  }
 
- .navbar-links {
+ .flex-display {
    display: flex;
+ }
+
+ .grid-display {
+   display: grid;
+ }
+
+ #home-header {
+   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+   grid-gap: 20px
+ }
+
+  #locations-all {
+   margin-top: 1em;
+ }
+
+ #location-all {
+   color: #6CB7D8;
  }
 
  .btn a {
@@ -90,7 +112,7 @@ a.link-style:hover {
  }
 
  label {
-   color: white;
+   color: #2b3248;
    font-family: Oswald;
    font-weight: 300;
  }
@@ -189,10 +211,10 @@ a.navbar-brand:hover {
   left: 0;
 }
 
-.logo-ball:hover {
+/* .logo-ball:hover {
   -webkit-animation: shake 1s;
     animation: shake 1s;
-}
+} */
 
 
 .link-style {
@@ -225,7 +247,8 @@ a.navbar-brand:hover {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%;
-  z-index: 1;
+  z-index: 5555;
+  padding: 0 1rem;
 }
 
 button.stripe-button-el,
@@ -247,12 +270,12 @@ button.stripe-button-el>span {
 .card-container {
   display: grid;
   width: 1fr;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 20px;
 }
 
 .event-card {
-  width: 250px;
+  width: 350px;
   background-color: white;
   border-radius: 10px;
   padding: 10px;
@@ -338,8 +361,36 @@ a.page-link {
   max-width: 80%;
 }
 
+.form-control::placeholder {
+  font-size: 1rem;
+  text-align: left;
+}
 
-/* .button-container {
-  position: fixed;
-  bottom: 5px;
-} */
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.stickyicky {
+  position: sticky;
+  top: 20px;
+  z-index: 10;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 40px;
+  height: 65px;
+  background: linear-gradient(to right, rgba(84,185,220,1) 0%,rgba(83,203,241,1) 36%,#063a5a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.icons {
+  margin-right: 15px;
+  display: flex;
+  height: 40px;
+  justify-content: space-between
+}

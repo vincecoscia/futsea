@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     @date = Date.parse(params[:date]) rescue Date.today
     page = (params[:page] || 1).to_i
-    per_page  = 5
+    per_page  = 8
     @location = Location.find(params[:location_id])
     @events = Location.find_by_id(params[:location_id])
                       .events

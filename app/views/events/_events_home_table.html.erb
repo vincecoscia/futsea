@@ -1,5 +1,5 @@
 <div class="card-container">
-    <% events.event_open.ordered_players.first(20).sample(8).each do |event| %>
+    <% events.event_open.ordered_players.first(30).sample(9).each do |event| %>
       <div class="event-card">
         <div>
           <div id="heading"><%= event.location.name %></div>
@@ -46,19 +46,3 @@
       </div>
     <% end %>
 </div>
-<!--
-  <table class="table table-hover">
-    <thead class="thead-light">
-      <tr>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Location</th>
-        <th>City</th>
-        <th>Game Type</th>
-        <th>Price</th>
-        <th>Current Players</th>
-        <th>Spots Available</th>
-        <th>Total Spots</th>
-        <th>Reserve</th>
-      </tr>
-    </thead>

@@ -1,8 +1,8 @@
 <div class="container" align="center">
   <div class="header-container">
     <h1><%= @location.name %></h1>
-    <h3><%= @location.street %></h3>
-    <h3><%= @location.city %>, <%= @location.state %> <%= @location.zipcode %></h3>
+    <h4><%= @location.street %></h4>
+    <h4><%= @location.city %>, <%= @location.state %> <%= @location.zipcode %></h4>
   </div>
   <div class="header-card" align="center">
     <%= render 'events/events_table', events: @events%>
