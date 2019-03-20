@@ -4,6 +4,8 @@
     <title>Futsea</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' %>
+    <%= stylesheet_link_tag 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet">
@@ -68,6 +70,7 @@
       <% flash.each do |a, b| %>
         <div class="alert alert-success"><%= b %></div>
       <% end %>
+          <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
     <%= yield %>
     <footer class="footer">
       <div class="icons">
