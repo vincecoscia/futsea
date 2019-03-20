@@ -4,9 +4,8 @@
     <%= link_to "Prev Week", location_events_path(date: (@date - 1.week).to_date ) %>
   </div> -->
     <div id="week">
-      <% a = Date.today%>
-      <% (a..(a + 1.week).to_date).each do |day| %>
-        <%= link_to day.strftime("%^a %-d %b"),
+      <% (Date.today..(Date.today + 1.week).to_date).each do |day| %>
+        <%= link_to day.today? ? "TODAY" : day.strftime("%^a %-d %b"),
             location_events_path(date: day),
             class: "btn btn-#{@date == day ? 'primary' : 'secondary'}",
             id: "date-#{day.strftime('%Y-%m-%d')}" %>
@@ -20,10 +19,9 @@
   <p>No Events Available for Selected Date</p>
 <% else %>
   <div class="table-container">
-  <table class="table">
+  <table class="table" style="table-layout:fixed;">
     <thead class="thead-light">
       <tr>
-        <th>Date</th>
         <th>Time</th>
         <th>Game Type</th>
         <th>Price</th>
@@ -36,7 +34,6 @@
     <tbody>
       <% events.each do |event| %>
         <tr>
-          <td><%= event.datetime.strftime("%m/%d/%Y") %></td>
           <td><%= event.datetime.strftime("%l:%M %p") %></td>
           <td ><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
           <td><%= number_to_currency(event.price/100) %></td>

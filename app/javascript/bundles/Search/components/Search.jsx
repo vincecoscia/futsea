@@ -41,7 +41,7 @@ export default class Search extends Component {
           <div className="suggestions">
             {results.map((result, i) => {
               return (
-                <p key={i}>
+                <p key={i} className="animated fadeIn">
                   <a
                     id="suggestion"
                     href={`/locations/${result.id}/events?date=${
