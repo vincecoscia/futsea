@@ -21,7 +21,7 @@ export default class Search extends Component {
     return (
       <div className="header-container" id="searchbar">
         <label htmlFor="term">
-          <h3>Find Location:</h3>
+          <h3>Search Locations</h3>
         </label>
         <input
           type="search"
@@ -29,11 +29,16 @@ export default class Search extends Component {
           value={term}
           onChange={this.handleChange}
           autoComplete="off"
-          className="form-control col-5"
+          className="form-control col-5 stickyicky"
+          placeholder="search by name, city, or zipcode"
         />
+        <div id="locations-all">
+          <a href="./locations" id="location-all">
+            All Locations
+          </a>
+        </div>
         {results.length > 0 && term.length > 0 && (
           <div className="suggestions">
-
             {results.map((result, i) => {
               return (
                 <p key={i}>

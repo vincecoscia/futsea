@@ -28,8 +28,8 @@
     <tbody>
       <% @profile.reservations.each do |reservation| %>
         <tr>
-          <td><%= reservation.event.date %></td>
-          <td><%= reservation.event.time.strftime("%_I:%M:%p") %></td>
+          <td><%= reservation.event.datetime.strftime("%m/%d/%Y") %></td>
+          <td><%= reservation.event.datetime.strftime("%_I:%M:%p") %></td>
           <td><%= reservation.event.location.name %></td>
           <td><%= reservation.event.location.city %></td>
           <td><%= reservation.event.field.game_type.to_s+" v "+reservation.event.field.game_type.to_s  %></td>
