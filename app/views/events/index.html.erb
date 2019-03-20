@@ -1,12 +1,11 @@
 <div class="container" align="center">
-
-  <h1><%= @location.name %></h1>
-  <h3><%= @location.street %></h3>
-  <h3><%= @location.city %>, <%= @location.state %> <%= @location.zipcode %></h3>
-  <div align="center">
+  <div class="header-container">
+    <h1><%= @location.name %></h1>
+    <h3><%= @location.street %></h3>
+    <h3><%= @location.city %>, <%= @location.state %> <%= @location.zipcode %></h3>
+  </div>
+  <div class="header-card" align="center">
     <%= render 'events/events_table', events: @events%>
     <%= will_paginate @events %>
   </div>
-
-
 </div>

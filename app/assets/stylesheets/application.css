@@ -14,6 +14,7 @@
  *= require_self
  */
 
+ @import "social-share-button";
 
 
  body {
@@ -23,6 +24,10 @@
  /* #fbf9f9; */
  .navbar-link {
    margin-left: 10px;
+ }
+
+ .navbar-links {
+   display: flex;
  }
 
  .btn a {
@@ -124,6 +129,8 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 10px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .btn-arrow-left {
@@ -285,7 +292,13 @@ button.stripe-button-el>span {
 #events-header {
   width: 100%;
 }
-
+.header-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 2px 3px #A9A9A9;
+  margin: 20px 0;
+}
 hr {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -315,6 +328,17 @@ a.page-link {
 #heading {
   font-weight: 400;
 }
+
+.form-control {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.col-5 {
+  max-width: 80%;
+}
+
+
 /* .button-container {
   position: fixed;
   bottom: 5px;
