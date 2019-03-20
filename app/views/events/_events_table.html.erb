@@ -35,8 +35,8 @@
     <tbody>
       <% events.each do |event| %>
         <tr>
-          <td><%= event.date %></td>
-          <td><%= event.time.strftime("%l %M %p") %></td>
+          <td><%= event.datetime.strftime("%m/%d/%Y") %></td>
+          <td><%= event.datetime.strftime("%l %M %p") %></td>
           <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
           <td><%= number_to_currency(event.price/100) %></td>
           <td>
