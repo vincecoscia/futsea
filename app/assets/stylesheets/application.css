@@ -20,7 +20,12 @@
  body {
    margin-top: 120px;
    background-color: #fbf9f9;
- }
+   min-height: 100vh; /* will cover the 100% of viewport */
+   display: block;
+   position: relative;
+   padding-bottom: 100px;
+   }
+
  /* #fbf9f9; */
  .navbar-link {
    margin-left: 10px;
@@ -372,6 +377,9 @@ input:focus::-webkit-input-placeholder {
 }
 
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   margin-top: 40px;
   height: 65px;
   background: linear-gradient(to right, rgba(84,185,220,1) 0%,rgba(83,203,241,1) 36%,#063a5a 100%);

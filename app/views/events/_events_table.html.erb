@@ -37,8 +37,8 @@
       <% events.each do |event| %>
         <tr>
           <td><%= event.datetime.strftime("%m/%d/%Y") %></td>
-          <td><%= event.datetime.strftime("%l %M %p") %></td>
-          <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
+          <td><%= event.datetime.strftime("%l:%M %p") %></td>
+          <td ><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
           <td><%= number_to_currency(event.price/100) %></td>
           <td>
           <% event.reservations.each do |res| %>
@@ -52,8 +52,8 @@
             <% end %>
           <% end %>
             </td>
-            <td><%= (event.field.game_type*2)-event.reservations.count %></td>
-            <td><%= event.field.game_type*2 %></td>
+            <td align='center'><%= event.max_players-event.current_players %></td>
+            <td align='center'><%= event.max_players %></td>
             <td>
               <% if event.event_full? || event.datetime < DateTime.now-4.hours %>
                 <button class="btn btn-outline" disabled>Unavailable</button>
