@@ -1,8 +1,8 @@
 
 <div class='event-filter'>
-  <div>
+  <!-- <div>
     <%= link_to "Prev Week", location_events_path(date: (@date - 1.week).to_date ) %>
-  </div>
+  </div> -->
     <div id="week">
       <% a = Date.today%>
       <% (a..(a + 1.week).to_date).each do |day| %>
@@ -12,9 +12,9 @@
             id: "date-#{day.strftime('%Y-%m-%d')}" %>
       <% end %>
     </div>
-  <div>
+  <!-- <div>
     <%= link_to "Next Week", location_events_path(date: (@date + 1.week).to_date ) %>
-  </div>
+  </div> -->
 </div>
 <% if events.empty? %>
   <p>No Events Available for Selected Date</p>
@@ -71,10 +71,9 @@
                           data-email= <%= current_user.email %>
                           data-locale="auto"></script>
                       <% end %>
-                  <% end %>  <%# button_tag %>
+                  <% end %>
                 <% end %>
               <% end %>
-
             </td>
           </tr>
         <% end %>
