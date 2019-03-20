@@ -2,15 +2,15 @@ class EventsController < ApplicationController
 
 
   def index
-    @date = Date.parse(params[:date]) rescue Date.current
+    @date = Date.parse(params[:date]) rescue Date.today
     page = (params[:page] || 1).to_i
     per_page  = 5
     @location = Location.find(params[:location_id])
     @events = Location.find_by_id(params[:location_id])
-                .events
-                .where(date: @date)
-                .ordered
-                .paginate(page: page, per_page: per_page)
+                      .events
+                      .where(datetime: @date.beginning_of_day..@date.end_of_day)
+                      .ordered
+                      .paginate(page: page, per_page: per_page)
   end
 
   def show

@@ -66,7 +66,7 @@
    field.location.open.upto(field.location.close).each do |time|
      0.upto(3).each do |day|
        Event.create(
-         datetime: DateTime.new(2019, 3, 20+day, time, 0, 0),
+         datetime: DateTime.new(2019, Date.today.strftime("%m").to_i, (Date.today.strftime("%d").to_i)+day, time, 0, 0),
          price: field.location.price,
          field: field
        )
@@ -78,35 +78,35 @@
 
 # create users and reservations
 
-# require 'open-uri'
+require 'open-uri'
 
-#  User.destroy_all
+ User.destroy_all
 
-#  100.times do |n|
-#    user = User.create!(
-#            email:      Faker::Internet.email,
-#            password:   'password'
-#          )
-#    profile = Profile.create!(
-#      name: Faker::Name.first_name,
-#      position:  ["Forward", "Midfielder","Defender","Goalie"].sample,
-#      user:       user
-#    )
-#   url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{rand(1..20)}.jpg"
-#    image = open(url)
-#    profile.pic.attach(io: image, filename: "pic.jpg")
-#    p "#{n} users"
-#  end
+ 100.times do |n|
+   user = User.create!(
+           email:      Faker::Internet.email,
+           password:   'password'
+         )
+   profile = Profile.create!(
+     name: Faker::Name.first_name,
+     position:  ["Forward", "Midfielder","Defender","Goalie"].sample,
+     user:       user
+   )
+  url = "https://randomuser.me/api/portraits/med/#{['men', 'women'].sample}/#{rand(1..20)}.jpg"
+   image = open(url)
+   profile.pic.attach(io: image, filename: "pic.jpg")
+   p "#{n} users"
+ end
 
 
-# 2000.times do |n|
-#   e = Event.event_open.sample.id
-#   u = User.count
-#   Reservation.create(
-#     event_id: e,
-#     user_id:  rand(1..u).to_i,
-#   )
-# end
+2000.times do |n|
+  e = Event.event_open.sample.id
+  u = User.count
+  Reservation.create(
+    event_id: e,
+    user_id:  rand(1..u).to_i,
+  )
+end
 
 puts "Locations: #{Location.count}"
 puts "Fields: #{Field.count}"

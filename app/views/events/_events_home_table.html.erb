@@ -4,8 +4,8 @@
         <div>
           <div id="heading"><%= event.location.name %></div>
           <hr/>
-          <div><%= event.date.strftime("%m/%d/%Y") %></div>
-          <div><%= event.time.strftime("%l %M %p") %></div>
+          <div><%= event.datetime.strftime("%m/%d/%Y") %></div>
+          <div><%= event.datetime.strftime("%l:%M %p") %></div>
           <div><%= event.location.city %></div>
           <div><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></div>
           <div><%= number_to_currency(event.price/100) %></div>
