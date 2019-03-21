@@ -380,6 +380,37 @@ input:focus::-webkit-input-placeholder {
   justify-content: space-between
 }
 
+
+.alert {
+  top: -45px;
+}
+
+h1.profile-header {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+h4.profile-header {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+table.past-events {
+  font-size: 12px;
+}
+
+.player-card {
+  width: 50%;
+}
+
+.edit {
+  margin: 10px 0;
+}
+
+.avatar-small:hover {
+  transform: scale(1.5)
+}
+
 .actions {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -416,3 +447,4 @@ p {
 #locations-map {
   margin: auto;
 }
+
