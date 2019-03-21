@@ -14,7 +14,7 @@ class Map extends Component {
       container: this.mapContainer,
       style: "mapbox://styles/jordanmarcr/cjtipvcx88loh1fs8dk0unon5",
       zoom: 10,
-      center: [-80.2043, 25.803]
+      center: [-80.2043, 25.803],
     };
     this.createMap(mapOptions, geolocationOptions);
   }
@@ -71,7 +71,7 @@ class Map extends Component {
   flyTo = ({ lng, lat }) => {
     this.map.flyTo({
       center: [lng, lat],
-      bearing: 20,
+      bearing: 0,
       zoom: 15,
       pitch: 20
     });
