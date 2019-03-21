@@ -28,7 +28,7 @@
  l_one_f_three = Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_one)
 
  #Downtown Soccer Miami
- l_two = Location.create(name: "Downtown Soccer Miami", street: "444 NW 5th St" , city: "Miami" , zipcode: "33128", state: "FL", url: "https://www.downtownsoccermiami.com", phone: "305-808-9997", neighborhood: "Downtown", lat: "25.7666", lon: "-80.1998", price: 1000, description: "Test description for Downtown Soccer Miami",open: 8, close: 22,img: 'https://i.ibb.co/t8yd2Vh/fieldocean.png'  ,img2: 'https://i.ibb.co/S6Kwrbn/stadiumfield.png' ,img3: 'https://i.ibb.co/DLC2csT/fieldnightlarge.png' )
+ l_two = Location.create(name: "Downtown Soccer Miami", street: "444 NW 5th St" , city: "Miami" , zipcode: "33128", state: "FL", url: "https://www.downtownsoccermiami.com", phone: "305-808-9997", neighborhood: "Downtown", lat: "25.7784", lon: "-80.2021", price: 1000, description: "Test description for Downtown Soccer Miami",open: 8, close: 22,img: 'https://i.ibb.co/t8yd2Vh/fieldocean.png'  ,img2: 'https://i.ibb.co/S6Kwrbn/stadiumfield.png' ,img3: 'https://i.ibb.co/DLC2csT/fieldnightlarge.png' )
 
  l_two_f_one = Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_two)
  l_two_f_two = Field.create(game_type: 7,surface: "turf",outdoor: true, location: l_two)
@@ -40,7 +40,7 @@
  l_three_f_two = Field.create(game_type: 6,surface: "turf",outdoor: true, location: l_three)
 
  #Americas Got Soccer
- l_four = Location.create(name: "Americas Got Soccer", street: "3488 N Andrews Ave" , city: "Ft. Lauderdale" , zipcode: "33309", state: "FL", url: "http://www.americasgotsoccer.com/", phone: "9549900611", neighborhood: "Oakland Park", lat: "26.1708", lon: "-80.1453", price: 1200, description: "Test description for Americas Got Soccer",open: 18, close: 23,img: 'https://i.ibb.co/QM2sg7Y/indoor.png',img2: 'https://i.ibb.co/64j8MjR/indoor2.png' ,img3: 'https://i.ibb.co/S6Kwrbn/stadiumfield.png' )
+ l_four = Location.create(name: "Americas Got Soccer", street: "3488 N Andrews Ave" , city: "Fort Lauderdale" , zipcode: "33309", state: "FL", url: "http://www.americasgotsoccer.com/", phone: "9549900611", neighborhood: "Oakland Park", lat: "26.1708", lon: "-80.1453", price: 1200, description: "Test description for Americas Got Soccer",open: 18, close: 23,img: 'https://i.ibb.co/QM2sg7Y/indoor.png',img2: 'https://i.ibb.co/64j8MjR/indoor2.png' ,img3: 'https://i.ibb.co/S6Kwrbn/stadiumfield.png' )
 
  l_four_f_one = Field.create(game_type: 5,surface: "turf",outdoor: false, location: l_four)
  l_four_f_two = Field.create(game_type: 6,surface: "turf",outdoor: false, location: l_four)
@@ -62,11 +62,30 @@
 
  l_sevenf_one = Field.create(game_type: 11,surface: "turf",outdoor: true, location: l_seven)
 
+ #Holiday Park Soccer Fields
+ l_eight = Location.create(name: "Holiday Park Soccer Fields", street: "1150 G. Harold Martin Dr" , city: "Fort Lauderdale" , zipcode: "33304", state: "FL", url: "https://www.fortlauderdale.gov/departments/parks-recreation/city-parks/holiday-park", phone: "9548285383", neighborhood: "Fort Lauderdale", lat: "26.1331", lon: "-80.1323", price: 800, description: "Test description for Holiday Park Soccer Fields",open: 18, close: 22,img: 'https://i.ibb.co/3NCMv1q/fieldnightlarge.png',img2: 'https://i.ibb.co/DLC2csT/fieldnightlarge2.png',img3: 'https://i.ibb.co/sKkH4CY/goalnight.png' )
+
+ l_eightf_one = Field.create(game_type: 11,surface: "grass", outdoor: true, location: l_eight)
+
+ #Urban Soccer Five
+ l_nine = Location.create(name: "Urban Soccer Five", street: "1125 NW 71st St" , city: "Miami" , zipcode: "33304", state: "FL", url: "http://urbansoccerfive.com/", phone: "786253288", neighborhood: "Little Haiti", lat: "25.8397", lon: "-80.2156", price: 1100, description: "Test description for Urban Soccer Five",open: 15, close: 22, img:'https://i.ibb.co/64j8MjR/indoor2.png',img2:'https://i.ibb.co/zm3XB8y/citymain.png',img3:'https://i.ibb.co/vk9yTYF/cliff.png')
+
+ l_ninef_one = Field.create(game_type: 5,surface: "turf", outdoor: false, location: l_nine)
+ l_ninef_one = Field.create(game_type: 6,surface: "turf", outdoor: false, location: l_nine)
+
+  #Indoor Soccer Place
+  l_ten = Location.create(name: "Indoor Soccer Place", street: "5900 Stirling Rd #3" , city: "Hollywood" , zipcode: "33021", state: "FL", url: "http://www.indoorsoccerpl.com/", phone: "7549717107", neighborhood: "Hollywood", lat: "26.0465", lon: "-80.2079", price: 1000, description: "Test description for Indoor Soccer Place",open: 14, close: 20, img:'https://i.ibb.co/t8yd2Vh/fieldocean.png',img2: 'https://i.ibb.co/DLC2csT/fieldnightlarge.png',img3: 'https://i.ibb.co/XCwpM86/cliff2.png' )
+
+  l_tenf_one = Field.create(game_type: 5,surface: "turf", outdoor: false, location: l_ten)
+  l_tenf_one = Field.create(game_type: 5,surface: "turf", outdoor: false, location: l_ten)
+
+
+
  Field.all.each do |field|
    field.location.open.upto(field.location.close).each do |time|
-     0.upto(3).each do |day|
+     0.upto(14).each do |day|
        Event.create(
-         datetime: DateTime.new(2019, Date.today.strftime("%m").to_i, (Date.today.strftime("%d").to_i)+day, time, 0, 0),
+         datetime: DateTime.new(2019, Date.today.strftime("%m").to_i, ((Date.today.strftime("%d").to_i-7)+day), time, 0, 0),
          price: field.location.price,
          field: field
        )
@@ -74,15 +93,13 @@
    end
  end
 
-
-
 # create users and reservations
 
 require 'open-uri'
 
  User.destroy_all
 
- 100.times do |n|
+ 200.times do |n|
    user = User.create!(
            email:      Faker::Internet.email,
            password:   'password'
@@ -99,7 +116,7 @@ require 'open-uri'
  end
 
 
-2000.times do |n|
+5000.times do |n|
   e = Event.event_open.sample.id
   u = User.count
   Reservation.create(

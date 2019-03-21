@@ -5,6 +5,12 @@ class Reservation < ApplicationRecord
 
   after_create :update_event_status
 
+  scope :past, -> { joins(:event).where("events.datetime < ?", Date.today).order("events.datetime DESC") }
+  scope :future, -> { joins(:event).where("events.datetime > ?", Date.today).order("events.datetime ASC") }
+
+
+
+
   def max_players
     self.event.field.game_type * 2
   end
@@ -12,7 +18,6 @@ class Reservation < ApplicationRecord
   def current_players
     self.event.reservations.count
   end
-
 
   def update_event_status
     p 'status update check'
@@ -23,8 +28,5 @@ class Reservation < ApplicationRecord
     p "#{self.event.reservations.count} in event"
     end
   end
-
-
-
 
 end

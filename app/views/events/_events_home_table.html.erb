@@ -16,8 +16,10 @@
               <% if res.user.profile.pic.attached? %>
                 <%= image_tag res.user.profile.pic,
                     width: 20,
+                    class: 'avatar-small',
                     height: 20,
-                    style: "border-radius:100%; object-fit:cover;" %>
+                    style: "border-radius:100%; object-fit:cover;",
+                    title: res.user.profile.name %>
               <% end %>
             <% end %>
             <% end %>
