@@ -4,7 +4,7 @@
   </div>
 <!-- <%= react_component 'Locations' %> -->
 <%= request.location.city %>
-  <div class="header-container" id="events-header">
+  <div class="header-container events-header">
     <h1><span><%= Emoji.find_by_alias("fire").raw %></span> Popular Events <span><%= Emoji.find_by_alias("fire").raw %></span></h1>
   </div>
     <%= render 'events/events_home_table', events: @events, location: @location %>
