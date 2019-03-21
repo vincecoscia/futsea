@@ -1,48 +1,48 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import Table from './Table'
-import Filter from './Filter'
-import Information from './Information'
- 
+import React, { Component } from "react";
+import axios from "axios";
+import Table from "./Table";
+import Filter from "./Filter";
+import Information from "./Information";
+import Map from "./Map";
+
 class Locations extends Component {
   state = {
-            cities: [],
-            locations:  [],
-            city: '',
-            location: {},
-          }
+    cities: [],
+    locations: [],
+    city: "",
+    location: {}
+  };
 
-  fetchLocations = (city) => {
-    axios.get(`/locations.json?city=${city}`)
-      .then(response => {
-        const { locations } = response.data
-        console.log({locations, city})
-        this.setState({ locations, city })
-      })
-  }
+  fetchLocations = city => {
+    axios.get(`/locations.json?city=${city}`).then(response => {
+      const { locations } = response.data;
+      console.log({ locations, city });
+      this.setState({ locations, city });
+    });
+  };
 
   handleChange = event => {
-    const city = event.target.value
-    this.fetchLocations(city)
-  }
+    const city = event.target.value;
+    this.fetchLocations(city);
+  };
 
-  switchLocation = (e,location) => {
-    e.preventDefault()
-    this.setState({ location: location})
-  }
+  switchLocation = (e, location) => {
+    e.preventDefault();
+    this.setState({ location });
+  };
 
-  render(){
-    const { locations, city, cities, location } = this.state
-    return(
-      <div className='locations-grid'>
-        <div className='locations-grid-item'>
+  render() {
+    const { locations, city, cities, location } = this.state;
+    const currentLocation = { lng: location.lon, lat: location.lat };
+    return (
+      <div className="locations-grid">
+        <div className="locations-grid-item">
           <Filter
             city={city}
             locations={locations}
             handleChange={this.handleChange}
             cities={cities}
           />
-          <h1>Locations</h1>
           <Table
             locations={locations}
             city={city}
@@ -51,18 +51,22 @@ class Locations extends Component {
           />
         </div>
         <div className="locations-grid-item">
-          <Information
-            location={location} />
+          {!!locations.length && (
+            <Map locations={locations} currentLocation={currentLocation} />
+          )}
+          <Information location={location} />
         </div>
       </div>
-    )
+    );
   }
 
-  componentDidMount(){
-    const { city } = this.state
-    axios.get('/cities').then(response => this.setState({cities: response.data}) )
-    this.fetchLocations(city)
+  componentDidMount() {
+    const { city } = this.state;
+    axios
+      .get("/cities")
+      .then(response => this.setState({ cities: response.data }));
+    this.fetchLocations(city);
   }
 }
 
-export default Locations
+export default Locations;

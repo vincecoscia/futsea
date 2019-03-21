@@ -8,6 +8,7 @@
 /.bundle
 #secrets shhhhh
 .env
+config.js
 
 # Ignore all logfiles and tempfiles.
 /log/*
