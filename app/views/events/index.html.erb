@@ -5,7 +5,7 @@
     <h4><%= @location.city %>, <%= @location.state %> <%= @location.zipcode %></h4>
   </div>
   <div class="header-card" align="center">
-    <%= render 'events/events_table', events: @events%>
+    <%= render 'events/events_table', events: @events, location: @location %>
     <%= will_paginate @events %>
   </div>
 </div>

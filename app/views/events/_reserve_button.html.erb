@@ -1,0 +1,19 @@
+ <% if event.event_full? || event.datetime < DateTime.now-4.hours %>
+  <button class="btn btn-outline" disabled>Unavailable</button>
+  <% else %>
+    <% if event.reservations.find_by(user: current_user) %>
+    <button class="btn btn-success" disabled>Reserved</button>
+    <%else%>
+      <%= form_for([event.location, event, Reservation.new]) do |form| %>
+          <%= button_tag "Reserve", class: "btn btn-primary"%>
+        <% if current_user %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Reserve your field!"
+              data-amount= <%= event.price %>
+              data-email= <%= current_user.email %>
+              data-locale="auto"></script>
+        <% end %>
+      <% end %>
+    <% end %>
+<% end %>

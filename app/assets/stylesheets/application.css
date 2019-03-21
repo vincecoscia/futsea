@@ -14,8 +14,6 @@
  *= require_self
  */
 
-
-
  body {
    margin-top: 120px;
    background-color: #fbf9f9;
@@ -43,7 +41,7 @@
    grid-gap: 20px
  }
 
-  #locations-all {
+#locations-all {
    margin-top: 1em;
  }
 
@@ -264,7 +262,7 @@ button.stripe-button-el>span {
 }
 .event-card:hover {
   background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 20px #fdc5f5;
+  box-shadow: 0px 0px 12px #2b3248;
 }
 
 .suggestions {

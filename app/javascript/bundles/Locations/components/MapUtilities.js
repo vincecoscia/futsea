@@ -28,5 +28,7 @@ export const locationLayers = {
   id: "locations",
   type: "symbol",
   source: "locations",
-  layout: { "icon-image": "beer-15", "icon-allow-overlap": true }
+  layout: { "icon-image": "icon_badge", "icon-size" : .2 , "icon-allow-overlap": true }
 };
+
+// icon_badge

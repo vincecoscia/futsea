@@ -1,79 +1,54 @@
-
 <div class='event-filter'>
-  <!-- <div>
-    <%= link_to "Prev Week", location_events_path(date: (@date - 1.week).to_date ) %>
-  </div> -->
-    <div id="week">
-      <% (Date.today..(Date.today + 1.week).to_date).each do |day| %>
-        <%= link_to day.today? ? "TODAY" : day.strftime("%^a %-d %b"),
-            location_events_path(date: day),
-            class: "btn btn-#{@date == day ? 'primary' : 'secondary'}",
-            id: "date-#{day.strftime('%Y-%m-%d')}" %>
-      <% end %>
-    </div>
-  <!-- <div>
-    <%= link_to "Next Week", location_events_path(date: (@date + 1.week).to_date ) %>
-  </div> -->
+  <div id="week">
+    <% (Date.today..(Date.today + 1.week).to_date).each do |day| %>
+      <%= link_to day.today? ? "TODAY" : day.strftime("%^a %-d %b"),
+          location_events_path(date: day),
+          class: "btn btn-#{@date == day ? 'primary' : 'secondary'}",
+          id: "date-#{day.strftime('%Y-%m-%d')}" %>
+    <% end %>
+  </div>
 </div>
-<% if events.empty? %>
-  <p>No Events Available for Selected Date</p>
-<% else %>
-  <div class="table-container">
-  <table class="table" style="table-layout:fixed;">
-    <thead class="thead-light">
-      <tr>
-        <th>Time</th>
-        <th>Game Type</th>
-        <th>Price</th>
-        <th>Current Players</th>
-        <th>Spots Available</th>
-        <th>Total Spots</th>
-        <th>Reserve</th>
-      </tr>
-    </thead>
-    <tbody>
+  <% if events.empty? %>
+    <p>No Events Available for Selected Date</p>
+  <% else %>
+    <div class="table-container">
+    <table class="table" style="table-layout:fixed;">
+      <thead class="thead-light">
+        <tr>
+          <th>Time</th>
+          <th>Game Type</th>
+          <th>Price</th>
+          <th>Current Players</th>
+          <th>Spots Available</th>
+          <th>Total Spots</th>
+          <th>Reserve</th>
+        </tr>
+      </thead>
+      <tbody>
       <% events.each do |event| %>
         <tr>
           <td><%= event.datetime.strftime("%l:%M %p") %></td>
-          <td ><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
+          <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
           <td><%= number_to_currency(event.price/100) %></td>
           <td>
-          <% event.reservations.each do |res| %>
+            <% event.reservations.each do |res| %>
             <%= link_to profile_path(res.user) do %>
-             <% if res.user.profile.pic.attached? %>
-              <%= image_tag res.user.profile.pic,
-                width: 25,
-                height: 25,
-                style: "border-radius:100%; object-fit:cover;" %>
-            <% end %>
-            <% end %>
-          <% end %>
-            </td>
-            <td align='center'><%= event.max_players-event.current_players %></td>
-            <td align='center'><%= event.max_players %></td>
-            <td>
-              <% if event.event_full? || event.datetime < DateTime.now-4.hours %>
-                <button class="btn btn-outline" disabled>Unavailable</button>
-              <% else %>
-                <% if event.reservations.find_by(user: current_user) %>
-                  <button class="btn btn-success" disabled>Reserved</button>
-                <%else%>
-                  <%= form_for([event.location, event, Reservation.new]) do |form| %>
-                    <%= button_tag "Reserve", class: "btn btn-primary"%>
-                      <% if current_user %>
-                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                          data-description="Reserve your field!"
-                          data-amount= <%= event.price %>
-                          data-email= <%= current_user.email %>
-                          data-locale="auto"></script>
-                      <% end %>
-                  <% end %>
+              <% if res.user.profile.pic.attached? %>
+                <%= image_tag res.user.profile.pic,
+                    width: 25,
+                    height: 25,
+                    style: "border-radius:100%; object-fit:cover;" %>
                 <% end %>
               <% end %>
-            </td>
-          </tr>
-        <% end %>
+            <% end %>
+          </td>
+          <td align='center'><%= event.max_players-event.current_players %></td>
+          <td align='center'><%= event.max_players %></td>
+          <td>
+            <%= render 'events/reserve_button', event: event %>
+          </td>
+        </tr>
+      <% end %>
       </tbody>
     </table>
   </div>
