@@ -1,24 +1,42 @@
-<p><%= @event.field.location.name %></p>
-<p><%= @event.field.location.street%></p>
-<p><%= "#{@event.field.location.city}, #{@event.field.location.state} #{@event.field.location.zipcode}" %></p>
-<p><%= @event.datetime.strftime("%I:%M") %></p>
-<p><%= @event.field.location.city %></p>
-<p><%= @event.field.game_type.to_s+" v "+@event.field.game_type.to_s  %></p>
-<p><%= number_to_currency(@event.price/100) %></p>
+<div class="container">
+  <div class="grid-display grid-columns">
+    <div class="header-container events-header">
+      <h1><%= @event.field.location.name %></h2>
 
-<!-- Profile Pictures -->
-  <% @event.reservations.each do |res| %>
-    <%= link_to profile_path(res.user) do %>
-      <% if res.user.profile.pic.attached? %>
-      <%= image_tag res.user.profile.pic,
-          width: 50,
-          height: 50,
-          style: "border-radius:100%; object-fit:cover;" %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-<!-- Reservation Button -->
-<%= render 'events/reserve_button', event: @event %>
+      <h2>
+        <%= @event.field.game_type.to_s+" v "+@event.field.game_type.to_s  %> @
+        <%= @event.datetime.strftime("%l:%M %p") %>
+      </h2>
+      <h3><%= @event.field.location.street%></h3>
+      <h3><%= "#{@event.field.location.city}, #{@event.field.location.state} #{@event.field.location.zipcode}" %></h3>
+    </div>
+      <!-- Profile Pictures -->
+    <div class="header-container events-header flex-column" align="center">
+      <h2>Price: <%= number_to_currency(@event.price/100) %></h2>
+        <div>
+          <p id="participants">Participants</p>
+          <% @event.reservations.each do |res| %>
+            <%= link_to profile_path(res.user) do %>
+              <% if res.user.profile.pic.attached? %>
+              <%= image_tag res.user.profile.pic,
+                  width: 60,
+                  height: 60,
+                  style: "border-radius:100%; object-fit:cover;" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <div style="margin-top: 20px">
+          <%= render 'events/reserve_button', event: @event %>
+        </div>
+    </div>
+      <!-- Reservation Button -->
+  </div>
+  <div class="header-container events-header" align="center">
+    <%= image_tag @event.location.img, class: "event-image" %>
+    <%= image_tag @event.location.img2, class: "event-image" %>
+    <%= image_tag @event.location.img3, class: "event-image" %>
+  </div>
+</div>
 
 
