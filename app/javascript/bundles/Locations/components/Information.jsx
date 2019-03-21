@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const Information = props => {
   if (!props.location.name) return null
   return (

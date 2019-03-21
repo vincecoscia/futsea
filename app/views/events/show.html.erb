@@ -1,8 +1,24 @@
-<p><%= @event.time.strftime("%I:%M") %></p>
 <p><%= @event.field.location.name %></p>
+<p><%= @event.field.location.street%></p>
+<p><%= "#{@event.field.location.city}, #{@event.field.location.state} #{@event.field.location.zipcode}" %></p>
+<p><%= @event.datetime.strftime("%I:%M") %></p>
 <p><%= @event.field.location.city %></p>
 <p><%= @event.field.game_type.to_s+" v "+@event.field.game_type.to_s  %></p>
 <p><%= number_to_currency(@event.price/100) %></p>
 
+<!-- Profile Pictures -->
+  <% @event.reservations.each do |res| %>
+    <%= link_to profile_path(res.user) do %>
+      <% if res.user.profile.pic.attached? %>
+      <%= image_tag res.user.profile.pic,
+          width: 50,
+          height: 50,
+          style: "border-radius:100%; object-fit:cover;" %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<!-- Reservation Button -->
+<%= render 'events/reserve_button', event: @event %>
 
 

@@ -8,3 +8,4 @@ ReactOnRails.register({
   Search,
   Locations
 });
+

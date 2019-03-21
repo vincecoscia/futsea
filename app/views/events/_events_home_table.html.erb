@@ -1,6 +1,7 @@
 <div class="card-container">
-    <% events.event_open.ordered_players.first(30).sample(9).each do |event| %>
-      <div class="event-card">
+  <% events.current_date.event_open.ordered_players.first(30).sample(9).each do |event| %>
+    <div class="event-card">
+      <%= link_to location_event_path(event.location.id, event) do %>
         <div>
           <div id="heading"><%= event.location.name %></div>
           <hr/>
@@ -19,30 +20,16 @@
                     style: "border-radius:100%; object-fit:cover;" %>
               <% end %>
             <% end %>
-          <% end %>
-          </div>
-          <div>Spots Available: <%= (event.field.game_type*2)-event.reservations.count %>/<%= event.field.game_type*2 %></div>
-        </div>
-        <div class="button-container">
-          <div >
-            <% if event.reservations.find_by(user: current_user) %>
-                <button class="btn btn-success" disabled>Reserved</button>
-            <%else%>
-
-                <%= form_for([event.location, event, Reservation.new]) do |form| %>
-                  <%= button_tag "Reserve", class: "btn btn-primary"%>
-                    <% if current_user %>
-                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                        data-description="Reserve your field!"
-                        data-amount= <%= event.price %>
-                        data-email= <%= current_user.email %>
-                        data-locale="auto"></script>
-                    <% end %>
-                <% end %>
             <% end %>
           </div>
+          <div>Spots Available: <%= (event.field.game_type*2)-event.reservations.count %>/<%= event.field.game_type*2 %></div>
+          </div>
+          <div class="button-container">
+          <div >
+            <%= render 'events/reserve_button', event: event %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
