@@ -1,21 +1,28 @@
 <div class="container" align="center">
-  <h1><%= current_user.email%>'s Profile</h1>
+  <div class="header-container">
+    <h1><%= current_user.email%>'s Profile</h1>
+      <div class="flex-display-down" width="auto !important">
+        <div class="flex-display  flex-column" align="center">
+        <%= form_with(model: @profile) do |form| %>
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+            <%= form.label :position %>
+            <%= form.select :position, options_for_select(["Keeper", "Midfield", "Defender", "Forward"],@profile.position) %>
+        </div>
+        <div >
+              <%= image_tag @profile.pic.attached? ? @profile.pic : "https://i.imgur.com/VffWbcl.png",
+                  width: 250,
+                  height: 250,
+                  style: "border-radius:100%; object-fit:cover;" %>
 
+                  <%= form.label :pic %>
 
-
-  <%= form_with(model: @profile) do |form| %>
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-      <%= form.label :position %>
-      <%= form.select :position, options_for_select(["Keeper", "Midfield", "Defender", "Forward"],@profile.position) %>
-      <%= image_tag @profile.pic.attached? ? @profile.pic : "https://i.imgur.com/VffWbcl.png",
-          width: 250,
-          height: 250,
-          style: "border-radius:100%; object-fit:cover;" %>
-      <div>
-        <%= form.label :pic %>
-        <%= form.file_field :pic %>
-      </div>
-      <%= form.submit %>
-  <% end %>
+              <div class="flex-display" align="center">
+                <%= form.file_field :pic %>
+                <%= form.submit class: "btn btn-primary" %>
+          <% end %>
+              </div>
+        </div>
+    </div>
+  </div>
 </div>
