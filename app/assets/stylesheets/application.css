@@ -374,7 +374,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .icons {
-  margin-right: 15px;
+  margin: 0 50px;
   display: flex;
   height: 40px;
   justify-content: space-between
