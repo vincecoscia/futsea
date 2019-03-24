@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~> 2.5'
 
+gem "aws-sdk-s3", require: false
 gem 'dotenv-rails'
 gem 'faker'
 gem 'hirb'
