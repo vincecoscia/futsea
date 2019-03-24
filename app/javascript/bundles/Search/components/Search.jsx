@@ -32,7 +32,7 @@ export default class Search extends Component {
           className="form-control col-5 stickyicky"
           placeholder="search by name, city, or zipcode"
         />
-        <div id="locations-all">
+        <div id="locations-all" class="btn btn-primary">
           <a href="./locations" id="location-all">
             All Locations
           </a>

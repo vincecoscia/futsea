@@ -56,10 +56,7 @@
 
 #locations-all {
    margin-top: 1em;
- }
-
- #location-all {
-   color: #6CB7D8;
+   color: white;
  }
 
  .btn a {
@@ -315,8 +312,7 @@ button.stripe-button-el>span {
 hr {
   margin-top: 5px;
   margin-bottom: 5px;
-  border-color: #fdc5f5;
-  opacity: .5;
+  border: .5px solid #68C7EA
 }
 
 .btn-primary {

@@ -5,7 +5,7 @@ const Information = props => {
   return (
   <React.Fragment>
     <div className='location-info'>
-      <h2>{props.location.name}</h2>
+      <h2 href={props.location.url}>{props.location.name}</h2>
       <p>{props.location.street}</p>
       <p>{props.location.city}, {props.location.state}</p>
       <a href={`/locations/${props.location.id}/events?date=${props.location.today}`} className='btn btn-primary'>See Events</a>
