@@ -51,6 +51,7 @@
           <th>Location</th>
           <th>City</th>
           <th>Game Type</th>
+          <th>Invite Friends!</th>
         </tr>
       </thead>
       <tbody>
@@ -61,6 +62,7 @@
             <td><%= reservation.event.location.name %></td>
             <td><%= reservation.event.location.city %></td>
             <td><%= reservation.event.field.game_type.to_s+" v "+reservation.event.field.game_type.to_s  %></td>
+            <td><%= social_share_button_tag %></td>
           </tr>
         <% end %>
       </tbody>
