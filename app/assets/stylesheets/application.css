@@ -111,11 +111,6 @@ a.link-style:hover {
    color: #2A3248;
  }
 
- span {
-   font-size: 12px;
-  font-family: Oswald;
-  color: #2A3248;
-}
 
  th {
    font-family: Oswald;
@@ -458,16 +453,22 @@ p {
   margin: auto;
 }
 
+.invite {
+ font-size: 12px;
+ font-family: Oswald;
+ color: #2A3248;
+ margin-top: 8px;
+}
+
 .social-links {
   width: 40px;
 }
 
-$size: 24px;
+.ssb-icon {
+  width: 35px !important;
+  background-size: 30px !important;
+}
 
-.social-share-button {
-  .ssb-icon {
-    background-size: $size $size;
-    height: $size;
-    width: $size;
-  }
+a.ssb-icon {
+  height: 40px !important;
 }
