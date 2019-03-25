@@ -73,7 +73,7 @@ class Map extends Component {
       center: [lng, lat],
       bearing: 0,
       zoom: 15,
-      pitch: 20
+      pitch: 20,
     });
   };
   componentWillUnmount() {

@@ -5,10 +5,16 @@ const Information = props => {
   return (
   <React.Fragment>
     <div className='location-info'>
-      <h2 href={props.location.url}>{props.location.name}</h2>
-      <p>{props.location.street}</p>
-      <p>{props.location.city}, {props.location.state}</p>
-      <a href={`/locations/${props.location.id}/events?date=${props.location.today}`} className='btn btn-primary'>See Events</a>
+        <a href={props.location.url}><h2 className="h2-hover">{props.location.name}</h2></a>
+      <div className='flex-display flex-display-down'>
+        <div>
+          <p>{props.location.street}</p>
+          <p>{props.location.city}, {props.location.state}</p>
+        </div>
+        <div>
+          <a href={`/locations/${props.location.id}/events?date=${props.location.today}`} className='btn btn-primary'>See Events</a>
+        </div>
+      </div>
     </div>
     <div>
       {/* <img className='map'src='https://i.ibb.co/dDPnYmq/map.png' style={{width: '600px'}} alt='map'></img> */}
@@ -24,6 +30,7 @@ const Information = props => {
         </div>
       </div>
     </div>
+
   </React.Fragment>
   )
 }
