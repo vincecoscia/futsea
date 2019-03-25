@@ -12,7 +12,7 @@ class Location < ApplicationRecord
       city:           city,
       state:          state,
       neighborhood:   neighborhood,
-      url:            "/locations/#{id}/events",
+      url:            url,
       lon:            lon,
       lat:            lat,
       open:           open,

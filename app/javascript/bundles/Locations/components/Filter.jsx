@@ -6,20 +6,18 @@ const Filter = props => (
     <label>Choose your City:</label>
     <select
       onChange={props.handleChange}
-      className="form-control col-4"
-      defaultValue=''
+      className="form-control col-4 form-control-normal-font"
+      defaultValue=""
     >
       <option value="">Select a City</option>
-      {
-        props.cities.map(city => (
-          <option key={city} value={city} >
-            {city}
-          </option>
-        ))
-      }
+      {props.cities.map(city => (
+        <option key={city} value={city}>
+          {city}
+        </option>
+      ))}
     </select>
   </div>
-)
+);
 
 export default Filter
 

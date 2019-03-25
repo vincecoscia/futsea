@@ -35,26 +35,33 @@ class Locations extends Component {
     const { locations, city, cities, location } = this.state;
     const currentLocation = { lng: location.lon, lat: location.lat };
     return (
-      <div className="locations-grid">
-        <div className="locations-grid-item">
+      <div>
+        <div class="margin-bottom">
           <Filter
             city={city}
             locations={locations}
             handleChange={this.handleChange}
             cities={cities}
           />
-          <Table
-            locations={locations}
-            city={city}
-            location={location}
-            switchLocation={this.switchLocation}
-          />
         </div>
-        <div className="locations-grid-item">
-          {!!locations.length && (
-            <Map locations={locations} currentLocation={currentLocation} />
-          )}
-          <Information location={location} />
+        <div className="locations-grid">
+          <div className="locations-grid-item">
+            <Table
+              locations={locations}
+              city={city}
+              location={location}
+              switchLocation={this.switchLocation}
+            />
+          </div>
+          <div className="locations-grid-item">
+            {!!locations.length && (
+              <Map
+                locations={locations}
+                currentLocation={currentLocation}
+              />
+            )}
+            <Information location={location} />
+          </div>
         </div>
       </div>
     );
