@@ -10,9 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+/*
  *= require_tree .
+ *= require social-share-button
  *= require_self
  */
+
+
 
  body {
    margin-top: 120px;
@@ -57,10 +61,7 @@
 
 #locations-all {
    margin-top: 1em;
- }
-
- #location-all {
-   color: #6CB7D8;
+   color: white;
  }
 
  .btn a {
@@ -111,6 +112,7 @@ a.link-style:hover {
    font-family: Oswald;
    color: #2A3248;
  }
+
 
  th {
    font-family: Oswald;
@@ -315,8 +317,7 @@ button.stripe-button-el>span {
 hr {
   margin-top: 5px;
   margin-bottom: 5px;
-  border-color: #fdc5f5;
-  opacity: .5;
+  border: .5px solid #68C7EA
 }
 
 .btn-primary {
@@ -383,7 +384,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .icons {
-  margin-right: 15px;
+  margin: 0 50px;
   display: flex;
   height: 40px;
   justify-content: space-between
@@ -455,6 +456,27 @@ p {
 
 #locations-map {
   margin: auto;
+}
+
+
+.invite {
+ font-size: 12px;
+ font-family: Oswald;
+ color: #2A3248;
+ margin-top: 8px;
+}
+
+.social-links {
+  width: 40px;
+}
+
+.ssb-icon {
+  width: 35px !important;
+  background-size: 30px !important;
+}
+
+a.ssb-icon {
+  height: 40px !important;
 }
 
 #map{

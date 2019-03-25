@@ -51,6 +51,8 @@
           <th>Location</th>
           <th>City</th>
           <th>Game Type</th>
+          <th>Current Players</th>
+          <th>Invite Friends!</th>
         </tr>
       </thead>
       <tbody>
@@ -61,6 +63,21 @@
             <td><%= reservation.event.location.name %></td>
             <td><%= reservation.event.location.city %></td>
             <td><%= reservation.event.field.game_type.to_s+" v "+reservation.event.field.game_type.to_s  %></td>
+            <td>
+            <% reservation.event.reservations.each do |res| %>
+            <%= link_to profile_path(res.user) do %>
+              <% if res.user.profile.pic.attached? %>
+                <%= image_tag res.user.profile.pic,
+                    class: 'avatar-small',
+                    width: 25,
+                    height: 25,
+                    style: "border-radius:100%; object-fit:cover;",
+                    title: res.user.profile.name %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </td>
+            <td><%= social_share_button_tag %></td>
           </tr>
         <% end %>
       </tbody>

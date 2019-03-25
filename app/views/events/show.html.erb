@@ -26,17 +26,20 @@
             <% end %>
           <% end %>
         </div>
-        <div style="margin-top: 20px">
+        <div style="margin-top: 10px">
           <%= render 'events/reserve_button', event: @event %>
         </div>
+        <div class='invite'>Invite Friends!
+          <%= social_share_button_tag %>
+        </div>
     </div>
-      <!-- Reservation Button -->
   </div>
   <div class="header-container events-header" align="center">
     <%= image_tag @event.location.img, class: "event-image" %>
     <%= image_tag @event.location.img2, class: "event-image" %>
     <%= image_tag @event.location.img3, class: "event-image" %>
   </div>
+
 </div>
 
 

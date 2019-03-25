@@ -25,32 +25,32 @@
         </tr>
       </thead>
       <tbody>
-      <% events.each do |event| %>
-        <tr>
-          <td><%= event.datetime.strftime("%l:%M %p") %></td>
-          <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
-          <td><%= number_to_currency(event.price/100) %></td>
-          <td>
-            <% event.reservations.each do |res| %>
-            <%= link_to profile_path(res.user) do %>
-              <% if res.user.profile.pic.attached? %>
-                <%= image_tag res.user.profile.pic,
-                    class: 'avatar-small',
-                    width: 25,
-                    height: 25,
-                    style: "border-radius:100%; object-fit:cover;",
-                    title: res.user.profile.name %>
+        <% events.each do |event| %>
+          <tr>
+            <td><%= event.datetime.strftime("%l:%M %p") %></td>
+            <td><%= event.field.game_type.to_s+" v "+event.field.game_type.to_s  %></td>
+            <td><%= number_to_currency(event.price/100) %></td>
+            <td>
+              <% event.reservations.each do |res| %>
+              <%= link_to profile_path(res.user) do %>
+                <% if res.user.profile.pic.attached? %>
+                  <%= image_tag res.user.profile.pic,
+                      class: 'avatar-small',
+                      width: 25,
+                      height: 25,
+                      style: "border-radius:100%; object-fit:cover;",
+                      title: res.user.profile.name %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            <% end %>
-          </td>
-          <td align='center'><%= event.max_players-event.current_players %></td>
-          <td align='center'><%= event.max_players %></td>
-          <td>
-            <%= render 'events/reserve_button', event: event %>
-          </td>
-        </tr>
-      <% end %>
+                <% end %>
+            </td>
+            <td align='center'><%= event.max_players-event.current_players %></td>
+            <td align='center'><%= event.max_players %></td>
+            <td>
+              <%= render 'events/reserve_button', event: event %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
